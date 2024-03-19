@@ -8,31 +8,31 @@ int main(void)
 
     do
     {
-       change = get_int("Change owed: ");
+        change = get_int("Change owed: ");
     }
     while (change < 0);
 
     while (change > 0)
     {
-     if (change >= 25)
-    {
-        change = change - 25;
-        no_of_coins++;
-    }
+        if (change >= 25)
+        {
+            change = change - 25;
+            no_of_coins++;
+        }
 
-    else if (change >= 10)
-    {
-        change = change - 10;
-        no_of_coins++;
-    }
+        else if (change >= 10)
+        {
+            change = change - 10;
+            no_of_coins++;
+        }
 
-    else if (change >= 5)
-    {
-        change = change - 5;
-        no_of_coins++;
-    }
+        else if (change >= 5)
+        {
+            change = change - 5;
+            no_of_coins++;
+        }
 
-    else if (change >= 1)
+        else if (change >= 1)
         {
             change = change - 1;
             no_of_coins++;
@@ -40,5 +40,4 @@ int main(void)
     }
 
     printf("%i\n", no_of_coins);
-
 }
