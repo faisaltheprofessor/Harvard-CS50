@@ -13,7 +13,11 @@ int calculateReadabilityScore(string s);
 int main()
 {
     string input = get_string("Enter the text: ");
-    printf("%i", calculateReadabilityScore(input));
+    printf("no of letters: %i\n", getNoOfLetters(input));
+
+    printf("no of words: %i\n", getNoOfWords(input));
+
+    printf("no of sentences: %i\n", getNoOfSentences(input));
 
 }
 
