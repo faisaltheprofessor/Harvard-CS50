@@ -7,6 +7,10 @@ int main()
     do
     {
         height = get_int("Height: ");
+        if (height == )
+        {
+            break;
+        }
     }
     while (height>=9 || height<0);
 
