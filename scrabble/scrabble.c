@@ -12,7 +12,7 @@ int main()
 {
 
 
-    string player1Word = get_string("Player 1: ");
+    string player1Word = toUpper(get_string("Player 1: "));
     string player2Word = get_string("Player 2: ");
 
 
@@ -41,7 +41,7 @@ int getIndex(char c)
 
     for (int i = 0, length = sizeof(letters) / sizeof(letters[0]); i < length; i++)
     {
-        printf("character is %c and the letter checked again is %c", c, letters[i]);
+        printf("character is %c and the letter checked again is %c", c, letters[i])
         if (c == letters[i])
         {
             index = i;
