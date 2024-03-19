@@ -6,7 +6,7 @@ char letters[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
 int weights[26] = {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10};
 
 int calculateScore(string s);
-int getIndex(char c, char letters[]);
+int getIndex(char c);
 
 int main()
 {
@@ -29,13 +29,23 @@ int calculateScore(string s)
 {
     for(int i = 0; i < strlen(s); i++) {
         char currentLetter = s[i];
-        printf("%c", currentLetter);
+        printf("%i", getIndex(currentLetter));
     }
     return 0;
 }
 
 
-int getIndex(char c, char* letters)
+int getIndex(char c)
 {
-    
+    int index;
+
+    for (int i = 0, length = sizeof(letters) / sizeof(letters[0]); i < length; i++)
+    {
+        if (c == letters[i])
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
 }
