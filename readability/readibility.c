@@ -19,6 +19,8 @@ int main()
 
     printf("no of sentences: %i\n", getNoOfSentences(input));
 
+
+    printf("ReadabilityScore is : %f\n", getNoOfSentences(input));
 }
 
 
