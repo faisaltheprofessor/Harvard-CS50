@@ -3,8 +3,14 @@
 
 int main(void)
 {
-    int change = get_int("Change owed: ");
+    int change;
     int no_of_coins = 0;
+
+    do
+    {
+       change = get_int("Change owed: ");
+    }
+    while (change <100 || change > 0);
 
     while (change > 0)
     {
@@ -33,6 +39,6 @@ int main(void)
         }
     }
 
-    printf("%i", no_of_coins);
+    printf("%i\n", no_of_coins);
 
 }
