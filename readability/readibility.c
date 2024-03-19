@@ -68,5 +68,5 @@ int calculateReadabilityScore(string s)
 {
 
 
-    return 0.0588 * ;
+    return 0.0588 * getNoOfLetters(s) - 0.296 * getNoOfSentences(s) - 15.8;
 }
