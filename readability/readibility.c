@@ -1,3 +1,4 @@
+#include <math.h>
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
@@ -12,7 +13,7 @@ int calculateReadabilityScore(string s);
 int main()
 {
     string input = get_string("Enter the text: ");
-    printf("%i", getNoOfSentences(input));
+    printf("%i", calculateReadabilityScore(input));
 
 }
 
@@ -67,6 +68,5 @@ int getNoOfSentences(string s)
 int calculateReadabilityScore(string s)
 {
 
-
-    return 0.0588 * getNoOfLetters(s) - 0.296 * getNoOfSentences(s) - 15.8;
+    return ceil(0.0588 * getNoOfLetters(s) - 0.296 * getNoOfSentences(s) - 15.8);
 }
