@@ -8,7 +8,7 @@ int main(void)
 
     while (change > 0)
     {
-        if (change <= 25)
+     if (change <= 25)
     {
         change = change - 25;
         no_of_coins++;
