@@ -38,12 +38,12 @@ int getNoOfWords(string s)
 {
     int noOfWords = 0;
     for (int i = 0, length = strlen(s); i <= length; i++)
-    {
-        if (isspace(s[i]))
         {
-            noOfWords ++;
+            if (isspace(s[i]))
+            {
+                noOfWords ++;
+            }
         }
-    }
     return noOfWords + 1;
 
 }
@@ -51,7 +51,15 @@ int getNoOfWords(string s)
 int getNoOfSentences(string s)
 {
     int noOfSentences = 0;
-    
+
+     for (int i = 0, length = strlen(s); i <= length; i++)
+        {
+            if (isspace(s[i]))
+            {
+                noOfWords ++;
+            }
+        }
+
     return noOfSentences;
 
 }
