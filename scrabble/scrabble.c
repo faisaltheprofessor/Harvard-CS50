@@ -37,10 +37,11 @@ int calculateScore(string s)
 
 int getIndex(char c)
 {
-    int index;
+    int index = -1;
 
     for (int i = 0, length = sizeof(letters) / sizeof(letters[0]); i < length; i++)
     {
+        printf("character is %c and the letter checked again is %c", c, letters[i]);
         if (c == letters[i])
         {
             index = i;
