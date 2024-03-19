@@ -23,7 +23,18 @@ int main()
     player1Score = calculateScore(player1Word);
     player2Score =  calculateScore(player2Word);
 
-    printf("Player 1 score: %i \nPlayer 2 score: %i", player1Score, player2Score);
+    if (player1Score == player2Score)
+    {
+        printf("Tie!");
+    }
+    else if (player1Score > player2Score)
+    {
+        printf("Player 1 wins!");
+    }
+    else if (player1Score < player2Score)
+    {
+        printf("Player 1 wins!");
+    }
 }
 
 
