@@ -7,7 +7,7 @@ int main()
     do
     {
         height = get_int("Height: ");
-        if (height == )
+        if (height <= 0 )
         {
             break;
         }
