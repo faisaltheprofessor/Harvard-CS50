@@ -35,7 +35,7 @@ int calculateScore(string s)
 }
 
 
-int getIndex(char c, char letters[])
+int getIndex(char c, char* letters)
 {
     
 }
