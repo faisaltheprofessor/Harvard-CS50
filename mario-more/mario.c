@@ -25,16 +25,18 @@ int main()
         printf("#");
        }
 
-    }
-        printf(" ");
-   for (int i = 1; i<=height; i++)
-    {
-       for (int j = i; j>0; j--)
+       printf(" ");
+
+        for (int j = i; j>0; j--)
        {
-        printf("#");
+        printf(" ");
        }
+
        printf("\n");
+
     }
+
+
 
     return 0;
 }
