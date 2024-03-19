@@ -16,7 +16,7 @@ int main()
         }
         height = atoi(height_in_str);
     }
-    while (height>=9 || height<0);
+    while (height>=9 || height<=0 || );
 
    for (int i = 1; i <= height; i++)
     {
