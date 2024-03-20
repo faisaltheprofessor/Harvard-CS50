@@ -4,59 +4,65 @@
 #include <stdio.h>
 #include <string.h>
 
-int getNoOfLettersAndWords(string s, int* totalWords);
-int getNoOfWords(string s);
-float getAverageSentencesPer100Words(string s)
+float getAverageLettersPer100Words(string s);
+float getAverageSentencesPer100Words(string s);
 int calculateReadabilityScore(string s);
 
 
 int main()
 {
     string input = get_string("Enter the text: ");
+    printf("%i\n",calculateReadabilityScore(input));
 
 }
 
 
 
-int getNoOfLettersAndWords(string s, int* totalWords)
+float getAverageLettersPer100Words(string s)
 {
-    int noOfLetters = 0;
-    *totalWords = 0;
+    int totalWords = 0;
+    int totalLetters = 0;
 
     for (int i = 0, length = strlen(s); i < length; i++)
     {
         if (isalpha(s[i]))
         {
-            noOfLetters++;
+            totalLetters++;
         }
         else if (isspace(s[i]))
         {
-            (*totalWords)++;
+            totalWords++;
         }
     }
 
     // Increment total words by 1 for the last word
-    (*totalWords)++;
+    totalWords++;
 
-    return noOfLetters;
+    // Calculate average letters per word
+    float averageLettersPerWord = (float) totalLetters / totalWords;
+
+    // Calculate average letters per 100 words
+    float averageLettersPer100Words = averageLettersPerWord * 100;
+
+    return averageLettersPer100Words;
 }
 
 
 
 
-int getNoOfWords(string s)
-{
-    int noOfWords = 0;
-    for (int i = 0, length = strlen(s); i <= length; i++)
-        {
-            if (isspace(s[i]))
-            {
-                noOfWords ++;
-            }
-        }
-    return (noOfWords + 1);
+// int getNoOfWords(string s)
+// {
+//     int noOfWords = 0;
+//     for (int i = 0, length = strlen(s); i <= length; i++)
+//         {
+//             if (isspace(s[i]))
+//             {
+//                 noOfWords ++;
+//             }
+//         }
+//     return (noOfWords + 1);
 
-}
+// }
 
 float getAverageSentencesPer100Words(string s)
 {
@@ -87,5 +93,5 @@ float getAverageSentencesPer100Words(string s)
 int calculateReadabilityScore(string s)
 {
 
-    return ceil(0.0588 * getNoOfLetters(s) - 0.296 * getNoOfSentences(s) - 15.8);
+    return ceil(0.0588 * getAverageLettersPer100Words(s) - 0.296 * getAverageSentencesPer100Words(s) - 15.8);
 }
