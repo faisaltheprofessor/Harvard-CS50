@@ -26,12 +26,12 @@ int main(int argc, string argv[])
             // In case of upper case letters
             if (islower(prompt[i]))
             {
-                printf("%c", ((((prompt[i] - 'a') + k) % 26) + 'a');
+                printf("%c", ((((prompt[i] - 'a') + k) % 26) + 'a'));
             }
             else
             {
                 // In case of lower case letters
-                printf("%c", ((((prompt[i] - 'A') + k) % 26) + 'A');
+                printf("%c", ((((prompt[i] - 'A') + k) % 26) + 'A'));
             }
         }
         else
