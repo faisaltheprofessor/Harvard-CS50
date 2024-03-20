@@ -75,7 +75,7 @@ int calculateScore(string s)
     for (int i = 0; i < strlen(s); i++)
     {
         char currentLetter = s[i];
-        score += weights[getIndex(currentLetter)];
+        score += letters[i].weight;
     }
     return score;
 }
