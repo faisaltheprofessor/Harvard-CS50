@@ -16,9 +16,9 @@ int main()
     if(score < 1) {
         printf ("Before Grade 1\n");
     }
-    else if (score > 16)
+    else if (score >= 16)
     {
-        printf ("Grade %i+\n", score);
+        printf ("Grade 16+\n");
     }
     else
     {
@@ -104,5 +104,7 @@ float getAverageSentencesPer100Words(string s)
 int calculateReadabilityScore(string s)
 {
 
-    return ceil(0.0588 * getAverageLettersPer100Words(s) - 0.296 * getAverageSentencesPer100Words(s) - 15.8);
+    float score =  0.0588 * getAverageLettersPer100Words(s) - 0.296 * getAverageSentencesPer100Words(s) - 15.8;
+
+
 }
