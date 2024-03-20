@@ -104,7 +104,20 @@ float getAverageSentencesPer100Words(string s)
 int calculateReadabilityScore(string s)
 {
 
-    float score =  0.0588 * getAverageLettersPer100Words(s) - 0.296 * getAverageSentencesPer100Words(s) - 15.8;
+    float lettersPer100Words = getAverageLettersPer100Words(s);
+    float sentencesPer100Words = getAverageSentencesPer100Words(s);
+
+    float score = 0.0588 * lettersPer100Words - 0.296 * sentencesPer100Words - 15.8;
+
+    float decimalPart = score - (int)score;
+    if (decimalPart >= 0.5)
+    {
+        return ceil(score);
+    }
+    else
+    {
+        return floor(score);
+    }
 
 
 }
