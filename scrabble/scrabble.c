@@ -11,7 +11,7 @@ typedef struct
 letter;
 
 letter letters[26] = {
-    new letter
+
 }
 
 char letters[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
