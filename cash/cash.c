@@ -6,7 +6,7 @@ int main(void)
 {
     int change;
     int no_of_coins = 0;
-    string coins = "";
+    string coins = NULL;
     do
     {
         change = get_int("Change owed: ");
