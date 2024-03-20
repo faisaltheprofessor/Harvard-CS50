@@ -51,7 +51,7 @@ int getNoOfWords(string s)
                 noOfWords ++;
             }
         }
-    return noOfWords + 1;
+    return (noOfWords + 1);
 
 }
 
