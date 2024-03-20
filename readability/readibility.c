@@ -20,7 +20,7 @@ int main()
     printf("no of sentences: %i\n", getNoOfSentences(input));
 
 
-    printf("ReadabilityScore is : %f\n", getNoOfSentences(input));
+    printf("ReadabilityScore is : %f\n", 0.0588 * getNoOfLetters(input) - 0.296 * getNoOfSentences(input) - 15.8);
 }
 
 
