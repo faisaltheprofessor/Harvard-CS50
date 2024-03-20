@@ -1,65 +1,47 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
+#include <ctype.h>
 #include <stdlib.h>
 
-void cipher_text(string plaintext, int key);
+void encrypt_text(string text, int key);
 
 int main(int argc, string argv[])
 {
-    if (argc == 2)
-    {
-        //check if argv[1] is a positive digit
-        for (int i = 0; i < strlen(argv[1]); i++)
-        {
-            if (isdigit(argv[1][i]) == false)
-            {
-                printf("Usage: ./caesar key\n");
-                return 1;
-            }
-        }
-
-        //convert argv[1] to a int
-        int key = atoi(argv[1]);
-
-        printf("Success\n" "%d\n", key);
-
-        string plaintext = get_string("Plaintext: ");
-
-        printf("ciphertext: ");
-
-        //encipher
-        //output ciphertext
-        cipher_text(plaintext, key);
-    }
-    else
+    // Validate arguments
+    if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
     }
 
-    printf("\n");
+    int key = atoi(argv[1]) % 26;
+
+    // Input text from user
+    string text = get_string("Enter Text: ");
+
+    // Encrypt the text
+    encrypt_text(text, key);
 }
 
-void cipher_text(string plaintext, int key)
+void encrypt_text(string text, int key)
 {
-    for (int i = 0; i < strlen(plaintext); i++)
+    for (int i = 0; i < strlen(text); i++)
     {
-        if (plaintext[i] >= 'a' && plaintext[i] <= 'z')
+        if (isalpha(text[i]))
         {
-            printf("%c", ((plaintext[i] - 'a' + key) % 26) + 'a');
+            if (islower(text[i]))
+            {
+                printf("%c", ((((text[i] - 'a') + key) % 26) + 'a'));
+            }
+            else
+            {
+                printf("%c", ((((text[i] - 'A') + key) % 26) + 'A'));
+            }
         }
-
-        if (plaintext[i] >= 'A' && plaintext[i] <= 'Z')
+        else
         {
-            printf("%c", ((plaintext[i] - 'A' + key) % 26) + 'A');
+            printf("%c", text[i]);
         }
-
-        else if (isalpha(plaintext[i]) == false)
-        {
-            printf("%c", plaintext[i]);
-        }
-
     }
 }
