@@ -12,7 +12,18 @@ int calculateReadabilityScore(string s);
 int main()
 {
     string input = get_string("Enter the text: ");
-    printf("%i\n",calculateReadabilityScore(input));
+    int score = calculateReadabilityScore(input);
+    if(score < 1) {
+        printf ("Before Grade 1");
+    }
+    else if (score > 16)
+    {
+        printf ("Grade %i+", score);
+    }
+    else
+    {
+        printf ("Grade %i", score);
+    }
 
 }
 
