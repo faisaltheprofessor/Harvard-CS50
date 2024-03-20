@@ -43,6 +43,5 @@ int main(void)
             printf("%i\n", 1);
         }
     }
-
-    printf("%i\n", no_of_coins);
+    printf("---------------\n%i coins\n", no_of_coins);
 }
