@@ -59,22 +59,6 @@ float getAverageLettersPer100Words(string s)
 }
 
 
-
-
-// int getNoOfWords(string s)
-// {
-//     int noOfWords = 0;
-//     for (int i = 0, length = strlen(s); i <= length; i++)
-//         {
-//             if (isspace(s[i]))
-//             {
-//                 noOfWords ++;
-//             }
-//         }
-//     return (noOfWords + 1);
-
-// }
-
 float getAverageSentencesPer100Words(string s)
 {
     int noOfSentences = 0;
@@ -118,6 +102,5 @@ int calculateReadabilityScore(string s)
     {
         return floor(score);
     }
-
 
 }
