@@ -40,4 +40,6 @@ int main(int argc, string argv[])
             printf("%c", prompt[i]);
         }
     }
+
+    printf("\n");
 }
