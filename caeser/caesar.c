@@ -10,7 +10,6 @@ int main(int argc, string argv[])
 {
     if (argc == 2)
     {
-        //check if argv[1] is a positive digit
         for (int i = 0; i < strlen(argv[1]); i++)
         {
             if (isdigit(argv[1][i]) == false)
@@ -20,17 +19,14 @@ int main(int argc, string argv[])
             }
         }
 
-        //convert argv[1] to a int
         int key = atoi(argv[1]);
 
-        printf("Success\n" "%d\n", key);
+        printf("Success\n%d\n", key);
 
         string plaintext = get_string("Plaintext: ");
 
         printf("ciphertext: ");
 
-        //encipher
-        //output ciphertext
         cipher_text(plaintext, key);
     }
     else
