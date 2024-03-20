@@ -41,6 +41,4 @@ int main(int argc, string argv[])
         }
 
     }
-    // Printing a new line after the loop execution has finished
-    printf("\n");
 }
