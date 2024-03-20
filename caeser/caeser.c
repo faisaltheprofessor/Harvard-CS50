@@ -1,7 +1,8 @@
-#include "cs50.h"
-#include "stdio.h"
+#include <cs50.h>
+#include <stdio.h>
 #include "string.h"
 #include "ctype.h"
+#include "stdlib.h"
 
 int main(int argc, string argv[])
 {
@@ -13,7 +14,7 @@ int main(int argc, string argv[])
     }
     int k = atoi(argv[1]);
     // Prompting the user for text
-    string prompt = GetString();
+    string prompt = get_string("Enter Text: ");
 
     for (int i = 0; i < strlen(prompt);i++)
     {
