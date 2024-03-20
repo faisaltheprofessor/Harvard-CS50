@@ -6,21 +6,14 @@
 
 int getNoOfLettersAndWords(string s, int* totalWords);
 int getNoOfWords(string s);
-int getNoOfSentences(string s);
+float getAverageSentencesPer100Words(string s)
 int calculateReadabilityScore(string s);
 
 
 int main()
 {
     string input = get_string("Enter the text: ");
-    printf("no of letters: %i\n", int getNoOfLettersAndWords(string s, int* totalWords));
 
-    printf("no of words: %i\n", getNoOfWords(input));
-
-    printf("no of sentences: %i\n", getNoOfSentences(input));
-
-
-    printf("ReadabilityScore is : %f\n", 0.0588 * getNoOfLetters(input) - 0.296 * getNoOfSentences(input) - 15.8);
 }
 
 
@@ -65,21 +58,31 @@ int getNoOfWords(string s)
 
 }
 
-int getNoOfSentences(string s)
+float getAverageSentencesPer100Words(string s)
 {
     int noOfSentences = 0;
+    int totalWords = 0;
 
-     for (int i = 0, length = strlen(s); i <= length; i++)
+    for (int i = 0, length = strlen(s); i < length; i++)
+    {
+        if (s[i] == '.' || s[i] == '?' || s[i] == '!')
         {
-            if (s[i] == '.' || s[i] == '?' || s[i] == '!')
-            {
-                noOfSentences ++;
-            }
+            noOfSentences++;
         }
+        else if (isspace(s[i]))
+        {
+            totalWords++;
+        }
+    }
 
-    return noOfSentences;
+    // Increment total words by 1 for the last word
+    totalWords++;
 
+    float averageSentencesPer100Words = ((float) noOfSentences / totalWords) * 100;
+
+    return averageSentencesPer100Words;
 }
+
 
 int calculateReadabilityScore(string s)
 {
