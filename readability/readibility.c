@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int getNoOfLetters(string s);
+int getNoOfLettersAndWords(string s, int* totalWords);
 int getNoOfWords(string s);
 int getNoOfSentences(string s);
 int calculateReadabilityScore(string s);
@@ -13,7 +13,7 @@ int calculateReadabilityScore(string s);
 int main()
 {
     string input = get_string("Enter the text: ");
-    printf("no of letters: %i\n", getNoOfLetters(input));
+    printf("no of letters: %i\n", int getNoOfLettersAndWords(string s, int* totalWords));
 
     printf("no of words: %i\n", getNoOfWords(input));
 
@@ -25,16 +25,26 @@ int main()
 
 
 
-int getNoOfLetters(string s)
+int getNoOfLettersAndWords(string s, int* totalWords)
 {
     int noOfLetters = 0;
-    for (int i = 0, length = strlen(s); i <= length; i++)
+    *totalWords = 0;
+
+    for (int i = 0, length = strlen(s); i < length; i++)
     {
         if (isalpha(s[i]))
         {
-            noOfLetters ++;
+            noOfLetters++;
+        }
+        else if (isspace(s[i]))
+        {
+            (*totalWords)++;
         }
     }
+
+    // Increment total words by 1 for the last word
+    (*totalWords)++;
+
     return noOfLetters;
 }
 
