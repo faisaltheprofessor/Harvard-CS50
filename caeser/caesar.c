@@ -1,8 +1,8 @@
 #include <cs50.h>
-#include <stdio.h>
 #include <ctype.h>
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void cipher_text(string plaintext, int key);
 
@@ -56,6 +56,5 @@ void cipher_text(string plaintext, int key)
         {
             printf("%c", plaintext[i]);
         }
-
     }
 }
