@@ -1,6 +1,6 @@
-#include <math.h>
 #include <cs50.h>
 #include <ctype.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -8,26 +8,23 @@ float getAverageLettersPer100Words(string s);
 float getAverageSentencesPer100Words(string s);
 int calculateReadabilityScore(string s);
 
-
 int main()
 {
     string input = get_string("Enter the text: ");
     int score = calculateReadabilityScore(input);
-    if(score < 1) {
-        printf ("Before Grade 1\n");
+    if (score < 1)
+    {
+        printf("Before Grade 1\n");
     }
     else if (score >= 16)
     {
-        printf ("Grade 16+\n");
+        printf("Grade 16+\n");
     }
     else
     {
-        printf ("Grade %i\n", score);
+        printf("Grade %i\n", score);
     }
-
 }
-
-
 
 float getAverageLettersPer100Words(string s)
 {
@@ -58,7 +55,6 @@ float getAverageLettersPer100Words(string s)
     return averageLettersPer100Words;
 }
 
-
 float getAverageSentencesPer100Words(string s)
 {
     int noOfSentences = 0;
@@ -84,7 +80,6 @@ float getAverageSentencesPer100Words(string s)
     return averageSentencesPer100Words;
 }
 
-
 int calculateReadabilityScore(string s)
 {
 
@@ -93,7 +88,7 @@ int calculateReadabilityScore(string s)
 
     float score = 0.0588 * lettersPer100Words - 0.296 * sentencesPer100Words - 15.8;
 
-    float decimalPart = score - (int)score;
+    float decimalPart = score - (int) score;
     if (decimalPart >= 0.5)
     {
         return ceil(score);
@@ -102,5 +97,4 @@ int calculateReadabilityScore(string s)
     {
         return floor(score);
     }
-
 }
