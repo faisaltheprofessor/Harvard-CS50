@@ -38,17 +38,15 @@ int main(int argc, char *argv[])
 
     // TODO: Copy header from input file to output file
     BYTE header[HEADER_SIZE];
-    fread(&header, sizeof(header), 1, input);
-    fwrite(&header, sizeof(header), 1, output);
-
-    DOUBLEBYTE bytes;
-
-    fread(&bytes, sizeof(bytes), 2, input)
-    
-
-
+    fread(header, HEADER_SIZE, 1, input);
+    fwrite(header, HEADE_SIZE, 1, output);
 
     // TODO: Read samples from input file and write updated data to output file
+    DOUBLEBYTE bytes;
+    while (fread(&bytes, sizeof(bytes), 1, input))
+    {
+        
+    }
 
     // Close files
     fclose(input);
