@@ -8,6 +8,6 @@ How do you know?: The superior performance of sort2 on the largest list, specifi
 
 sort3 uses: Selection Sort
 
-How do you know?: This took a while on an already sorted list, which is the charactarisitc of selection sort (On2)
+How do you know?: sort3 is likely using Selection Sort based on the extended time it took to complete the sorting process on an already sorted list. This behavior aligns with the characteristic time complexity of Selection Sort, which is O(n^2).
 
 
