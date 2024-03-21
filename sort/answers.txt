@@ -1,11 +1,11 @@
 sort1 uses: Bubble Sort
 
-How do you know?: I ran this sort on the sorted files, and it was quite fast, faster than sort3. Bubble sort has a Ω(n), and let me conclude this is bubble sort.
+How do you know?: The quick performance of sort1 on sorted data suggests it is likely Bubble Sort. This is because Bubble Sort is known to be efficient when data is already ordered, which matches the observed behavior. The Omega (best-case) time complexity of Bubble Sort being Ω(n) when data is sorted further supports this conclusion.
 
 sort2 uses: Merge Sort
 
 How do you know?:
-It was the fast on largest list, reversed50000.txt. i concluded the runtime complexity is O(nlogn), and Merge sort has that complexity. 
+It was the fast on largest list, reversed50000.txt. i concluded the runtime complexity is O(nlogn), and Merge sort has that complexity.
 
 sort3 uses: Selection Sort
 
