@@ -4,8 +4,18 @@ How do you know?: TODO
 
 sort2 uses: Merge Sort
 
-How do you know?: TODO
+How do you know?:
+random5000words: 0.32s
+random10000words real    0m0.073s
+random50000words real    0m0.624s
+reversed5000: 0.47
+reversed10000: real    0m0.116s
+reversed500000: real    0m0.617s
 
 sort3 uses: TODO
 
 How do you know?: TODO
+
+
+
+
