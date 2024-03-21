@@ -1,18 +1,13 @@
-sort1 uses: TODO
+sort1 uses: Bubble Sort
 
-How do you know?: TODO
+How do you know?: I ran this sort on the sorted files, and it was quite fast, faster than sort3. Bubble sort has a Ω(n), and let me conclude this is bubble sort.
 
 sort2 uses: Merge Sort
 
 How do you know?:
-random5000words: 0.32s
-random10000words real    0m0.073s
-random50000words real    0m0.624s
-reversed5000: 0.47
-reversed10000: real    0m0.116s
-reversed500000: real    0m0.617s
+It was the fast on largest list, reversed50000.txt. i concluded the runtime complexity is O(nlogn), and Merge sort has that complexity. 
 
-sort3 uses: TODO
+sort3 uses: Selection Sort
 
 How do you know?: TODO
 
