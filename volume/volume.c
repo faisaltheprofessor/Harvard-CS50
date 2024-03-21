@@ -40,6 +40,10 @@ int main(int argc, char *argv[])
     BYTE header[HEADER_SIZE];
     fread(&header, sizeof(header), 1, input);
     fwrite(&header, sizeof(header), 1, output);
+
+    DOUBLEBYTE bytes;
+
+    fread(&bytes, sizeof(bytes), 2, input)
     
 
 
