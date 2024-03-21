@@ -4,13 +4,10 @@ How do you know?: The quick performance of sort1 on sorted data suggests it is l
 
 sort2 uses: Merge Sort
 
-How do you know?:
-The superior performance of sort2 on the largest list, specifically reversed50000.txt, indicates that it is likely Merge Sort. This conclusion is supported by the observed time complexity, which aligns with Merge Sort's O(nlogn) complexity.
+How do you know?: The superior performance of sort2 on the largest list, specifically reversed50000.txt, indicates that it is likely Merge Sort. This conclusion is supported by the observed time complexity, which aligns with Merge Sort's O(nlogn) complexity.
 
 sort3 uses: Selection Sort
 
-
-
-
+How do you know?: This took a while on an already sorted list, which is the charactarisitc of selection sort (On2)
 
 
