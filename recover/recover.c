@@ -2,12 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
+
 
 #define BLOCK_SIZE 512
 #define JPEG_START1 0xff
 #define JPEG_START2 0xd8
-#define JPEG_START3 0xff
 #define JPEG_HEADER_MASK 0xf0
 #define JPEG_HEADER_VALUE 0xe0
 
@@ -36,7 +35,7 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 1, BLOCK_SIZE, memory_card) == BLOCK_SIZE)
     {
-        if (buffer[0] == JPEG_START1 && buffer[1] == JPEG_START2 && buffer[2] == JPEG_START1 && (buffer[3] == JPEG_START3))
+        if (buffer[0] == JPEG_START1 && buffer[1] == JPEG_START2 && buffer[2] == JPEG_START1 && (buffer[3] & JPEG_HEADER_MASK) == JPEG_HEADER_VALUE)
         {
             if (jpeg_found)
             {
