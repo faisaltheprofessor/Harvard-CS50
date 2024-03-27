@@ -1,8 +1,14 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 
 #define BLOCK_SIZE 512
-const unit8_t JPEG_HEADERS[3] = { 0xFF, 0xD8, 0xFF}
+#define JPEG_START1 0xff
+#define JPEG_START2 0xd8
+#define JPEG_HEADER_MASK 0xf0
+#define JPEG_HEADER_VALUE 0xe0
 
 int main(int argc, char *argv[])
 {
@@ -22,19 +28,43 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    uint8_t buffer[BLOCK_SIZE];
+   uint8_t buffer[BLOCK_SIZE];
+    int img_count = 0;
+    FILE *img = NULL;
+    bool jpeg_found = false;
 
-    int no_of_images_found = 0;
-    FILE * image = NULL;
-    bool found = false;
+    while (fread(buffer, 1, BLOCK_SIZE, card) == BLOCK_SIZE)
+    {
+        if (buffer[0] == JPEG_START1 && buffer[1] == JPEG_START2 && buffer[2] == JPEG_START1 && (buffer[3] & JPEG_HEADER_MASK) == JPEG_HEADER_VALUE)
+        {
+            if (jpeg_found)
+            {
+                fclose(img);
+            }
+            else
+            {
+                jpeg_found = true;
+            }
 
+            char filename[8];
+            sprintf(filename, "%03i.jpg", img_count);
+            img = fopen(filename, "w");
+            img_count++;
+        }
 
+        if (jpeg_found)
+        {
+            fwrite(buffer, 1, BLOCK_SIZE, img);
+        }
+    }
 
+    fclose(card);
+    if (img != NULL)
+    {
+        fclose(img);
+    }
 
-     // While there's still data left to read from the memory card
-     while(fread(buffer, sizeof(buffer), BLOCK_SIZE, memory_card) == BLOCK_SIZE)
-        // Create JPEGs from the data
-        
+    return 0;
 
 
 }
