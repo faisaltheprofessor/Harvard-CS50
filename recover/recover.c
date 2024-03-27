@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     FILE *img = NULL;
     bool jpeg_found = false;
 
-    while (fread(buffer, 1, BLOCK_SIZE, card) == BLOCK_SIZE)
+    while (fread(buffer, 1, BLOCK_SIZE, memory_card) == BLOCK_SIZE)
     {
         if (buffer[0] == JPEG_START1 && buffer[1] == JPEG_START2 && buffer[2] == JPEG_START1 && (buffer[3] & JPEG_HEADER_MASK) == JPEG_HEADER_VALUE)
         {
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    fclose(card);
+    fclose(memory_card);
     if (img != NULL)
     {
         fclose(img);
