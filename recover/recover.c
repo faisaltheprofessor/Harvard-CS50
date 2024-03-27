@@ -31,19 +31,19 @@ int main(int argc, char *argv[])
    uint8_t buffer[BLOCK_SIZE];
     int img_count = 0;
     FILE *img = NULL;
-    bool jpeg_found = false;
+    bool jpg_found = false;
 
     while (fread(buffer, 1, BLOCK_SIZE, memory_card) == BLOCK_SIZE)
     {
         if (buffer[0] == JPEG_SIG_1 && buffer[1] == JPEG_SIG_2 && buffer[2] == JPEG_SIG_1 && (buffer[3] & JPEG_HEADER_MASK) == JPEG_HEADER_VALUE)
         {
-            if (jpeg_found)
+            if (jpg_found)
             {
                 fclose(img);
             }
             else
             {
-                jpeg_found = true;
+                jpg_found = true;
             }
 
             char filename[8];
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
             img_count++;
         }
 
-        if (jpeg_found)
+        if (jpg_found)
         {
             fwrite(buffer, 1, BLOCK_SIZE, img);
         }
