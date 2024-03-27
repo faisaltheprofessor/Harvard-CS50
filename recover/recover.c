@@ -1,8 +1,6 @@
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
 
 #define BLOCK_SIZE 512
 #define JPEG_SIG_1 0xff
@@ -13,13 +11,13 @@
 int main(int argc, char *argv[])
 {
 
-    if(argc != 2)
+    if (argc != 2)
     {
         printf("Usage: ./recover FILE\n");
         return 1;
     }
 
-     // Open the memory card
+    // Open the memory card
     FILE *memory_card = fopen(argv[1], "r");
 
     if (memory_card == NULL)
@@ -28,14 +26,17 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-   uint8_t buffer[BLOCK_SIZE];
+    uint8_t buffer[BLOCK_SIZE];
     int img_count = 0;
     FILE *img = NULL;
     bool jpg_found = false;
 
+    // While there's still data left to read from the memory card
     while (fread(buffer, 1, BLOCK_SIZE, memory_card) == BLOCK_SIZE)
     {
-        if (buffer[0] == JPEG_SIG_1 && buffer[1] == JPEG_SIG_2 && buffer[2] == JPEG_SIG_1 && (buffer[3] & JPEG_HEADER_MASK) == JPEG_HEADER_VALUE)
+        // Create JPEGs from the data
+        if (buffer[0] == JPEG_SIG_1 && buffer[1] == JPEG_SIG_2 && buffer[2] == JPEG_SIG_1 &&
+            (buffer[3] & JPEG_HEADER_MASK) == JPEG_HEADER_VALUE)
         {
             if (jpg_found)
             {
@@ -65,5 +66,4 @@ int main(int argc, char *argv[])
     }
 
     return 0;
-
 }
