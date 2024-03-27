@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define BLOCK_SIZE 512
-#define
+const unit8_t JPEG_HEADERS[3] = { 0xFF, 0xD8, 0xFF}
 
 int main(int argc, char *argv[])
 {
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
      // While there's still data left to read from the memory card
      while(fread(buffer, sizeof(buffer), BLOCK_SIZE, memory_card) == BLOCK_SIZE)
         // Create JPEGs from the data
-        if(buffer[0] == 0xFF)
+        
 
 
 }
