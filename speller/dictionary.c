@@ -36,7 +36,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // Open the dictionary file
-    FILE *dictionary = open()
+    FILE *dictionary = open("dictionary", "r");
 
     // Read each word in the file
 
