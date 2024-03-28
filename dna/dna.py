@@ -38,13 +38,14 @@ def main():
     for row in rows:
         match = True
         for seq in SEQUENCES:
-            if int(row[seq]) != sequence_counts[seq]:
-                match = False
-                break
-        if match:
-            print(f"Match found for {row['name']}")
-    if not any(match):
-        print("No match found in the database")
+            print(row)
+    #         if int(row[seq]) != sequence_counts[seq]:
+    #             match = False
+    #             break
+    #     if match:
+    #         print(f"Match found for {row['name']}")
+    # if not any(match):
+    #     print("No match found in the database")
 
 
     return
