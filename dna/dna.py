@@ -7,7 +7,7 @@ def main():
 
     # Check for command-line usage
     if len(sys.argv) < 3:
-        print("Usage: python dna.py *.csv *.txt")
+        print("Usage: python dna.py databases/*.csv sequences/*.txt")
         sys.exit(1)
 
     # Read database file into a variable
@@ -69,14 +69,20 @@ def longest_match(sequence, subsequence):
     return longest_run
 
 def read_csv_to_list(file_path):
-    """Reads CSV file and returns the content as a list."""
-    with open(file_path, 'r') as file:
-        return list(csv.DictReader(file))
+    if file_exists(file_path):
+        with open(file_path, 'r') as file:
+            return list(csv.DictReader(file))
+    else:
+        print(f"file {file_path} not found")
+        sys.exit(2)
 
 def read_text_file(file_path):
-    """Reads text file and returns the content."""
-    with open(file_path, 'r') as file:
-        return file.read()
+   if file_exists(file_path):
+        with open(file_path, 'r') as file:
+            return file.read()
+    else:
+        print(f"file {file_path} not found")
+        sys.exit(2)
 
 def check_matching_profiles(database, subsequences, result):
     """Checks database for matching profiles based on STR results."""
@@ -85,5 +91,7 @@ def check_matching_profiles(database, subsequences, result):
             return person
     return None
 
+def file_exists(file_path):
+    return os.path.exists(file_path)
 
 main()
