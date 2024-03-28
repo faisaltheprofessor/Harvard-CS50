@@ -4,4 +4,8 @@
 -- You may assume that there is only one person in the database with the name Jennifer Lawrence.
 
 
+select id from people where name = "Bradley Cooper" or name = "Jennifer Lawrence"
 
+
+select id from stars where person_id in
+    (select id from people where name = "Bradley Cooper" or name = "Jennifer Lawrence");
