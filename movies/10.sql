@@ -3,4 +3,9 @@
 -- If a person directed more than one movie that received a rating of at least 9.0, they should only appear in your results once.
 
 
-SELECT DISTINCT(name) FROM movies  JOIN ratings ON ratings.movie_id = movies.id  JOIN directors ON directors.movie_id = movies.id  JOIN stars ON stars.movie_id = movies.id  JOIN people ON stars.person_id = people.id WHERE rating >= 9;
+SELECT DISTINCT p.name
+FROM people p
+JOIN directors d ON p.id = d.person_id
+JOIN movies m ON d.movie_id = m.id
+JOIN ratings r ON m.id = r.movie_id
+WHERE r.rating >= 9.0;
