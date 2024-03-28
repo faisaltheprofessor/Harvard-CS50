@@ -24,14 +24,15 @@ def main():
     sequenceFile = "sequences/" + sys.argv[1]
     if os.path.exists(sequenceFile):
 
-        with open(sequence) as file:
+        with open(sequenceFile) as file:
             dna_sequence = file.read()
     else:
         print("File does not exist")
         sys.exit(2)
 
     # TODO: Find longest match of each STR in DNA sequence
-    
+    sequence_counts = {seq: longest_match(dna_sequence, seq) for seq in SEQUENCES}
+
 
     # TODO: Check database for matching profiles
 
