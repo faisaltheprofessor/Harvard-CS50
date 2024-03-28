@@ -3,8 +3,17 @@
 -- You may assume that there is only one person in the database with the name Bradley Cooper.
 -- You may assume that there is only one person in the database with the name Jennifer Lawrence.
 
-
-select id from people where name = "Bradley Cooper" or name = "Jennifer Lawrence"
-
-
-select movie_id from stars where person_id in (select id from people where name = "Bradley Cooper" or name = "Jennifer Lawrence");
+SELECT title
+FROM movies
+WHERE id IN (
+    SELECT stars.movie_id
+    FROM stars
+    JOIN people  ON stars.person_id = people.id
+    WHERE people.name = 'Bradley Cooper'
+)
+AND id IN (
+    SELECT stars.movie_id
+    FROM stars
+    JOIN people people ON stars.person_id = people.id
+    WHERE people.name = 'Jennifer Lawrence'
+);
