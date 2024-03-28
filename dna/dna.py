@@ -2,7 +2,6 @@ import csv
 import sys
 import os
 
-SEQUENCES = ["AGAT", "AATG", "TATC"]
 
 def main():
 
