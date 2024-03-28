@@ -33,19 +33,9 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     sequence_counts = {seq: longest_match(dna_sequence, seq) for seq in SEQUENCES}
 
-    print (sequence_counts)
+
     # # TODO: Check database for matching profiles
-    for row in rows:
-        match = True
-        for seq in SEQUENCES:
-            print(row)
-    #         if int(row[seq]) != sequence_counts[seq]:
-    #             match = False
-    #             break
-    #     if match:
-    #         print(f"Match found for {row['name']}")
-    # if not any(match):
-    #     print("No match found in the database")
+
 
 
     return
