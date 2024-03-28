@@ -12,11 +12,12 @@ def get_average_letters_per_100_words(s):
     average_letters_per_100_words = average_letters_per_word * 100
     return average_letters_per_100_words
 
+
 def get_average_sentences_per_100_words(s):
     num_sentences = 0
     total_words = 0
     for char in s:
-        if char in ['.', '?', '!']:
+        if char in [".", "?", "!"]:
             num_sentences += 1
         elif char.isspace():
             total_words += 1
@@ -24,6 +25,7 @@ def get_average_sentences_per_100_words(s):
     total_words += 1
     average_sentences_per_100_words = (num_sentences / total_words) * 100
     return average_sentences_per_100_words
+
 
 def calculate_readability_score(s):
     letters_per_100_words = get_average_letters_per_100_words(s)
@@ -35,6 +37,7 @@ def calculate_readability_score(s):
         return int(score) + 1
     else:
         return int(score)
+
 
 input_text = input("Enter the text: ")
 score = calculate_readability_score(input_text)
