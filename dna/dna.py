@@ -78,4 +78,10 @@ def longest_match(sequence, subsequence):
     return longest_run
 
 
+def read_text_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
+
+
+
 main()
