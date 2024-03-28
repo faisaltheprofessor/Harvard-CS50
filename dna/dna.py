@@ -80,9 +80,11 @@ def read_text_file(file_path):
    if file_exists(file_path):
         with open(file_path, 'r') as file:
             return file.read()
+
     else:
-        print(f"file {file_path} not found")
-        sys.exit(2)
+       print("file no exist")
+       sys.exit(2)
+
 
 def check_matching_profiles(database, subsequences, result):
     """Checks database for matching profiles based on STR results."""
