@@ -5,39 +5,30 @@ import os
 
 def main():
 
-    # TODO: Check for command-line usage
-    if (len(sys.argv) != 2 ):
-        print("Missing argument FILE")
+    # Check for command-line usage
+    if len(sys.argv) < 3:
+        print("Usage: python dna.py *.csv *.txt")
         sys.exit(1)
 
-    # TODO: Read database file into a variable
+    # Read database file into a variable
+    database = read_csv_to_list(sys.argv[1])
 
-    rows = []
-    with open("databases/large.csv") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            rows.append(row)
+    # Read DNA sequence file into a variable
+    dna_sequence = read_text_file(sys.argv[2])
 
+    # List of subsequences to check
+    subsequences = list(database[0].keys())[1:]
 
-    # TODO: Read DNA sequence file into a variable
-    sequenceFile = "sequences/" + sys.argv[1]
-    if os.path.exists(sequenceFile):
+    # Find longest match of each STR in DNA sequence
+    result = {subsequence: longest_match(dna_sequence, subsequence) for subsequence in subsequences}
 
-        with open(sequenceFile) as file:
-            dna_sequence = file.read()
+    # Check database for matching profiles
+    match_person = check_matching_profiles(database, subsequences, result)
+
+    if match_person:
+        print(match_person["name"])
     else:
-        print("File does not exist")
-        sys.exit(2)
-
-    # TODO: Find longest match of each STR in DNA sequence
-    sequence_counts = {seq: longest_match(dna_sequence, seq) for seq in SEQUENCES}
-    print (sequence_counts)
-    print (rows[0])
-
-    # # TODO: Check database for matching profiles
-
-
-    return
+        print("No match")
 
 
 def longest_match(sequence, subsequence):
@@ -77,11 +68,22 @@ def longest_match(sequence, subsequence):
     # After checking for runs at each character in seqeuence, return longest run found
     return longest_run
 
+def read_csv_to_list(file_path):
+    """Reads CSV file and returns the content as a list."""
+    with open(file_path, 'r') as file:
+        return list(csv.DictReader(file))
 
 def read_text_file(file_path):
+    """Reads text file and returns the content."""
     with open(file_path, 'r') as file:
         return file.read()
 
+def check_matching_profiles(database, subsequences, result):
+    """Checks database for matching profiles based on STR results."""
+    for person in database:
+        if all(int(person[subsequence]) == result[subsequence] for subsequence in subsequences):
+            return person
+    return None
 
 
 main()
