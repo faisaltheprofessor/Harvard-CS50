@@ -5,18 +5,24 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    if (len(sys.argv) != 2 )
-    {
+    if (len(sys.argv) != 2 ):
         print("Missing argument FILE")
         sys.exit(1)
-    }
 
     # TODO: Read database file into a variable
-    db = csv.ReadDict("databases/large.csv")
+
+    rows = []
+    with open("databases/large.csv") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            rows.append(row)
 
 
     # TODO: Read DNA sequence file into a variable
-    sequence = sys.argv[1]
+    sequence = "sequences/" + sys.argv[1]
+    with open(sequence) as file:
+        file_contents = file.read()
+        print(file_contents)
 
     # TODO: Find longest match of each STR in DNA sequence
 
