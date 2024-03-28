@@ -32,10 +32,10 @@ def main():
 
     # TODO: Find longest match of each STR in DNA sequence
     sequence_counts = {seq: longest_match(dna_sequence, seq) for seq in SEQUENCES}
-
+    print (sequence_counts)
+    print (rows[0])
 
     # # TODO: Check database for matching profiles
-
 
 
     return
