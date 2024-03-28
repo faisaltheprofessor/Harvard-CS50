@@ -20,7 +20,10 @@ def main():
     subsequences = list(database[0].keys())[1:]
 
     # Find longest match of each STR in DNA sequence
-    result = {subsequence: longest_match(dna_sequence, subsequence) for subsequence in subsequences}
+    result = {
+        subsequence: longest_match(dna_sequence, subsequence)
+        for subsequence in subsequences
+    }
 
     # Check database for matching profiles
     match_person = check_matching_profiles(database, subsequences, result)
@@ -32,8 +35,6 @@ def main():
 
 
 def longest_match(sequence, subsequence):
-    """Returns length of longest run of subsequence in sequence."""
-
     # Initialize variables
     longest_run = 0
     subsequence_length = len(subsequence)
@@ -68,31 +69,37 @@ def longest_match(sequence, subsequence):
     # After checking for runs at each character in seqeuence, return longest run found
     return longest_run
 
+
 def read_csv_to_list(file_path):
     if file_exists(file_path):
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             return list(csv.DictReader(file))
     else:
         print(f"file {file_path} not found")
         sys.exit(2)
 
+
 def read_text_file(file_path):
     if os.path.exists(file_path):
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             return file.read()
     else:
-        print("File does not exist")
+        print(f"file {file_path} not found")
         sys.exit(2)
 
 
 def check_matching_profiles(database, subsequences, result):
-    """Checks database for matching profiles based on STR results."""
     for person in database:
-        if all(int(person[subsequence]) == result[subsequence] for subsequence in subsequences):
+        if all(
+            int(person[subsequence]) == result[subsequence]
+            for subsequence in subsequences
+        ):
             return person
     return None
 
+
 def file_exists(file_path):
     return os.path.exists(file_path)
+
 
 main()
