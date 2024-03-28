@@ -1,5 +1,6 @@
 import csv
 import sys
+import os
 
 
 def main():
@@ -20,9 +21,13 @@ def main():
 
     # TODO: Read DNA sequence file into a variable
     sequence = "sequences/" + sys.argv[1]
-    with open(sequence) as file:
-        file_contents = file.read()
-        print(file_contents)
+    if os.path.exists(sequence):
+
+        with open(sequence) as file:
+            file_contents = file.read()
+    else:
+        print("File does not exist")
+        sys.exit(2)
 
     # TODO: Find longest match of each STR in DNA sequence
 
