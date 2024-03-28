@@ -77,13 +77,12 @@ def read_csv_to_list(file_path):
         sys.exit(2)
 
 def read_text_file(file_path):
-   if file_exists(file_path):
+    if os.path.exists(file_path):
         with open(file_path, 'r') as file:
             return file.read()
-
     else:
-       print("file no exist")
-       sys.exit(2)
+        print("File does not exist")
+        sys.exit(2)
 
 
 def check_matching_profiles(database, subsequences, result):
