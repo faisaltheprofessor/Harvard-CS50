@@ -2,6 +2,7 @@ import csv
 import sys
 import os
 
+SEQUENCES = ["AGAT", "AATG", "TATC"]
 
 def main():
 
@@ -20,16 +21,17 @@ def main():
 
 
     # TODO: Read DNA sequence file into a variable
-    sequence = "sequences/" + sys.argv[1]
-    if os.path.exists(sequence):
+    sequenceFile = "sequences/" + sys.argv[1]
+    if os.path.exists(sequenceFile):
 
         with open(sequence) as file:
-            file_contents = file.read()
+            dna_sequence = file.read()
     else:
         print("File does not exist")
         sys.exit(2)
 
     # TODO: Find longest match of each STR in DNA sequence
+    
 
     # TODO: Check database for matching profiles
 
