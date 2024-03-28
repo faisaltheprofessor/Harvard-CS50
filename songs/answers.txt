@@ -1,0 +1,13 @@
+About the Aura, I caclulated the following results:
+SELECT AVG(danceability), AVG(energy), AVG(loudness), AVG(speechiness), AVG(valence), AVG(tempo), AVG(duration_ms) FROM songs;
+
++-------------------+-------------+---------------+------------------+--------------+------------+------------------+
+| avg(danceability) | avg(energy) | avg(loudness) | avg(speechiness) | avg(valence) | avg(tempo) | avg(duration_ms) |
++-------------------+-------------+---------------+------------------+--------------+------------+------------------+
+| 0.71646           | 0.65906     | -5.67764      | 0.115569         | 0.484443     | 119.90418  | 205206.78        |
++-------------------+-------------+---------------+------------------+--------------+------------+------------------+
+
+- Based on these values I can say the person prefers songs that make them dance and give them energy.
+
+
+
