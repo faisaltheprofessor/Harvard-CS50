@@ -3,7 +3,13 @@
 -- People with the same birth year may be listed in any order.
 -- No need to worry about people who have no birth year listed, so long as those who do have a birth year are listed in order.
 -- If a person appeared in more than one movie in 2004, they should only appear in your results once.
-select id from movies where year = 2004;
-select person_id from stars where movie_id in (select id from movies where year = 2004);
-select distinct(person_id) from stars where movie_id in (select id from movies where year = 2004);
 
+
+
+-- select id from movies where year = 2004;
+-- select person_id from stars where movie_id in (select id from movies where year = 2004);
+-- select distinct(person_id) from stars where movie_id in (select id from movies where year = 2004);
+
+ SELECT name FROM people WHERE id IN
+    (SELECT DISTINCT(person_id) FROM stars WHERE movie_id IN
+        (SELECT id FROM movies WHERE year = 2004)) ORDER BY birth;
