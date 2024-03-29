@@ -53,4 +53,4 @@ select  account_number  from atm_transactions where month = 7 and day = 28 and a
 select caller from phone_calls where month = 7 and day = 28 and duration < 60;
 
 
-select name from people where phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60) and 
+select name from people where phone_number = (select caller from phone_calls where month = 7 and day = 28 and duration < 60) and license_plate = (select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit');
