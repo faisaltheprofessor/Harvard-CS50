@@ -10,6 +10,8 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 -- As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket.
 
 
+-- The duck was stolen at 10:15
+
 -- Checking Parking log for vehicles leaving around that time:
 select * from bakery_security_logs where month = 7 and day = 28 and activity = 'exit';
 
