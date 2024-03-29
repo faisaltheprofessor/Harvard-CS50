@@ -12,3 +12,4 @@ select description, street  from crime_scene_reports where day = 28 and month = 
 
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
+select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street';
