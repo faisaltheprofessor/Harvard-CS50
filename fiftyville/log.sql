@@ -12,6 +12,8 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 
 -- Checking Parking log for vehicles leaving around that time:
 
+
+
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
 select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
