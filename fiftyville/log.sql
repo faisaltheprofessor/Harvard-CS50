@@ -13,7 +13,7 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 -- The duck was stolen at 10:15
 
 -- Checking Parking log for vehicles leaving around that time:
-select * from bakery_security_logs where month = 7 and day = 28 and activity = 'exit';
+select * from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit';
 
 
 
