@@ -32,7 +32,7 @@ select license_plate from bakery_security_logs where month = 7 and day = 28 and 
 
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
-select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
+select  account_number  from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
 -- +-----+----------------+------+-------+-----+----------------+------------------+--------+
 -- | id  | account_number | year | month | day |  atm_location  | transaction_type | amount |
 -- +-----+----------------+------+-------+-----+----------------+------------------+--------+
@@ -49,4 +49,5 @@ select * from atm_transactions where month = 7 and day = 28 and atm_location = '
 
 
 
+-- Checking phone calls less thatn 60 seconds
 
