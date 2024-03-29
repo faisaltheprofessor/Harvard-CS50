@@ -1,7 +1,7 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 
 -- Listing the description of the crimes scencs took place on july 28
-select description, street  from crime_scene_reports where day = 28 and month = 7 and street = 'Humphrey Street';
+select description  from crime_scene_reports where day = 28 and month = 7 and street = 'Humphrey Street';
 
 -- Since the description says each of interview transcripts mentions the bakery, chechking the interviews table transcript and look into the ones mentioning the bakery
 
@@ -10,6 +10,11 @@ select description, street  from crime_scene_reports where day = 28 and month = 
 -- As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket.
 
 
+-- Checking Parking log for vehicles leaving around that time:
+
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
-select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street';
+select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
+
+
+
