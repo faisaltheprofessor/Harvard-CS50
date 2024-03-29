@@ -13,13 +13,40 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 -- The duck was stolen at 10:15
 
 -- Checking Parking log for vehicles leaving around that time:
-select * from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit';
+select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit';
 
+-- +-----+------+-------+-----+------+--------+----------+---------------+
+-- | id  | year | month | day | hour | minute | activity | license_plate |
+-- +-----+------+-------+-----+------+--------+----------+---------------+
+-- | 260 | 2023 | 7     | 28  | 10   | 16     | exit     | 5P2BI95       |
+-- | 261 | 2023 | 7     | 28  | 10   | 18     | exit     | 94KL13X       |
+-- | 262 | 2023 | 7     | 28  | 10   | 18     | exit     | 6P58WS2       |
+-- | 263 | 2023 | 7     | 28  | 10   | 19     | exit     | 4328GD8       |
+-- | 264 | 2023 | 7     | 28  | 10   | 20     | exit     | G412CB7       |
+-- | 265 | 2023 | 7     | 28  | 10   | 21     | exit     | L93JTIZ       |
+-- | 266 | 2023 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
+-- | 267 | 2023 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
+-- | 268 | 2023 | 7     | 28  | 10   | 35     | exit     | 1106N58       |
+-- +-----+------+-------+-----+------+--------+----------+---------------+
 
 
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
 select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
+-- +-----+----------------+------+-------+-----+----------------+------------------+--------+
+-- | id  | account_number | year | month | day |  atm_location  | transaction_type | amount |
+-- +-----+----------------+------+-------+-----+----------------+------------------+--------+
+-- | 246 | 28500762       | 2023 | 7     | 28  | Leggett Street | withdraw         | 48     |
+-- | 264 | 28296815       | 2023 | 7     | 28  | Leggett Street | withdraw         | 20     |
+-- | 266 | 76054385       | 2023 | 7     | 28  | Leggett Street | withdraw         | 60     |
+-- | 267 | 49610011       | 2023 | 7     | 28  | Leggett Street | withdraw         | 50     |
+-- | 269 | 16153065       | 2023 | 7     | 28  | Leggett Street | withdraw         | 80     |
+-- | 288 | 25506511       | 2023 | 7     | 28  | Leggett Street | withdraw         | 20     |
+-- | 313 | 81061156       | 2023 | 7     | 28  | Leggett Street | withdraw         | 30     |
+-- | 336 | 26013199       | 2023 | 7     | 28  | Leggett Street | withdraw         | 35     |
+-- +-----+----------------+------+-------+-----+----------------+------------------+--------+
+
+
 
 
 
