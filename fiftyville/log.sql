@@ -50,4 +50,7 @@ select  account_number  from atm_transactions where month = 7 and day = 28 and a
 
 
 -- Checking phone calls less thatn 60 seconds
+select caller from phone_calls where month = 7 and day = 28 and duration < 60;
 
+
+select name from people where phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60;)
