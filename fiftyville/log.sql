@@ -11,6 +11,7 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 
 
 -- Checking Parking log for vehicles leaving around that time:
+select * from bakery_security_logs where month = 7 and day = 28 and activity = 'exit';
 
 
 
