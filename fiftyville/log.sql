@@ -104,4 +104,4 @@ select people.name from people inner join passengers on people.passport_number =
 
 
 select name, phone_number from (select people.name, people.phone_number from people inner join passengers on people.passport_number = passengers.passport_number inner join
-flights on flights.id = passengers.flight_id where flights.id = 36) where name in (select name from people where phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60)) and phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60);
+flights on flights.id = passengers.flight_id where flights.id = 36) where name in (select name from people where phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60));
