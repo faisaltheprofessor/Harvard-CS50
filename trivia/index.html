@@ -7,39 +7,40 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-
             document.addEventListener('DOMContentLoaded', () => {
-                let correctAnswer = 'Afghanistan'
-                let correctP = document.querySelector("#answer p:first-child");
-                let incorrectP = document.querySelector("#answer p:nth-child(2)");
-                let buttons = document.querySelectorAll('button');
+                const correctAnswer = 'Afghanistan';
+                const answerParagraphs = document.querySelectorAll("#answer p");
+                const buttons = document.querySelectorAll('button');
 
-            buttons.forEach(button => {
-                button.addEventListener('click', event => {
-                    let givenAnswer = event.target.innerHTML
-                    if (givenAnswer === correctAnswer)
-                    {
-                        let siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
-                        siblings.forEach(sibling => {sibling.classList.remove('failure')})
+                buttons.forEach(button => {
+                    button.addEventListener('click', event => {
+                    const givenAnswer = event.target.innerHTML;
+                    const siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
 
-                        correctP.classList.add('hidden')
-                        incorrectP.classList.add('hidden')
-                        event.target.classList.add ('success')
-                        correctP.classList.remove('hidden')
+                    answerParagraphs.forEach(paragraph => {
+                        paragraph.classList.add('hidden');
+                    });
+
+                    if (givenAnswer === correctAnswer) {
+                        siblings.forEach(sibling => {
+                        sibling.classList.remove('failure');
+                        });
+
+                        event.target.classList.add('success');
+                        answerParagraphs[0].classList.remove('hidden');
+                    } else {
+                        siblings.forEach(sibling => {
+                        sibling.classList.remove('failure');
+                        sibling.classList.remove('success');
+                        });
+
+                        event.target.classList.add('failure');
+                        answerParagraphs[1].classList.remove('hidden');
                     }
-                    else
-                    {
-                        let siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
-                        siblings.forEach(sibling => {sibling.classList.remove('failure')})
-                        siblings.forEach(sibling => {sibling.classList.remove('success')})
-                        correctP.classList.add('hidden')
-                        incorrectP.classList.add('hidden')
-                        event.target.classList.add ('failure')
-                        incorrectP.classList.remove('hidden')
-                    }
-                })
-            })
-            })
+                    });
+                });
+                });
+
         </script>
     </head>
     <body>
