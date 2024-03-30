@@ -1,4 +1,6 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
+
+
 -- Listing the description of the crimes scencs took place on july 28
 
 SELECT
@@ -40,6 +42,7 @@ WHERE
 -- | 322W7JE       |
 -- | 0NTHK55       |
 -- +---------------+
+
 -- Gettings names of the people in the parking lot during that time
 
 SELECT
