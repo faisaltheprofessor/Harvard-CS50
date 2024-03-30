@@ -10,7 +10,7 @@
 
             document.addEventListener('DOMContentLoaded', () => {
                 const correctAnswer = 'Afghanistan';
-                const answerParagraphs = document.querySelectorAll("#answer p");
+                const answerParagraphs = document.querySelectorAll("#answers p");
                 const buttons = document.querySelectorAll('.mcq button');
 
                 buttons.forEach(button => {
@@ -42,7 +42,7 @@
                 });
 
                 document.getElementById('submitAnswer').addEventListener('click', () => {
-                    let answer = document.getElementById('answer')
+                    let answer = text.toLowerCase(document.getElementById('answer').value)
                     console.log(answer)
                 })
 
