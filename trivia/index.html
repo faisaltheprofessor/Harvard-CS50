@@ -7,6 +7,14 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
+
+            let buttons = document.getElementsByTagName('button');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', event => {
+                    console.log(event)
+                })
+            })
         </script>
     </head>
     <body>
@@ -19,12 +27,15 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
-                <h1>Which country does this flag represent? 🇦🇫</h1>
+                <h3>Which country does this flag represent? 🇦🇫</h3>
+                <p class="correct">Correct</p>
+                <p class="correct">Incorrect</p>
+
                 <div>
-                    <Button>Germany</Button>
-                    <Button>Afghanistan</Button>
-                    <Button>Ukraine</Button>
-                    <Button>Turkey</Button>
+                    <button>Germany</button>
+                    <button>Afghanistan</button>
+                    <button>Ukraine</button>
+                    <button>Turkey</button>
                 </div>
             </div>
 
