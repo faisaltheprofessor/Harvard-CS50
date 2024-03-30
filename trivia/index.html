@@ -42,6 +42,7 @@
                 });
 
                 const correctAnswer2 = 'kabul'
+                let result = document.querySelector('#result');
 
                 document.getElementById('submitAnswer').addEventListener('click', () => {
                     let input = document.getElementById('answer')
@@ -49,7 +50,9 @@
                     if (correctAnswer2 === (input.value).toLowerCase())
                     {
                         input.classList.add('success')
-                        console.log(input)
+                        result.innertHTML = 'Correct'
+                        result.classList.add('success')
+                        console.log(result)
                     }
                     {
 
@@ -90,13 +93,10 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>What is the capital of Afghanistan?</h3>
+                <input id="answer" type="text" />
+                <button id="submitAnswer">Check Answer</button>
 
-                <div style="display: flex">
-                    <div style="display:flex; flex-direction: column; flex: 1; align-items: start">
-                        <input id="answer" type="text" />
-                        <span>Correct</span>
-                    </div>
-                    <button id="submitAnswer">Check Answer</button></div>
+                <p id="result"></p>
             </div>
         </div>
     </body>
