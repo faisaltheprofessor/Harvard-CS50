@@ -59,3 +59,36 @@ AND bakery_security_logs.hour = 10
 AND bakery_security_logs.minute BETWEEN 15 AND 25;
 
 
+
+-- Finds the Name of the people associated with the ATM account Number
+SELECT people.name FROM people
+JOIN bank_accounts ON people.id = bank_accounts.person_id
+JOIN atm_transactions ON bank_accounts.account_number = atm_transactions.account_number AND month = 7
+AND day = 28 AND atm_location = 'Leggett Street';
+
+
+-- Find the Names of the Callers
+SELECT people.name FROM people
+JOIN phone_calls ON people.phone_number = phone_calls.caller
+WHERE phone_calls.month = 7 AND phone_calls.day = 28
+AND phone_calls.duration <= 60;
+
+
+-- Flights From Airport in Fiftyville (8 is ID #)
+SELECT * FROM airports
+WHERE city = 'Fiftyville';
+
+
+
+-- Find Earliest Flight That Day (8: 20)
+SELECT * FROM flights
+WHERE origin_airport_id = 8 AND flights.month = 7 AND flights.day = 29;
+
+
+-- Find Passenger Names for the flight (Killer is Bruce)
+SELECT people.name FROM people
+JOIN passengers ON people.passport_number = passengers.passport_number
+JOIN flights ON passengers.flight_id = flights.id
+JOIN airports ON flights.origin_airport_id = airports.id
+WHERE airports.city = 'Fiftyville'
+AND flights.month = 7 AND flights.day = 29 AND flights.hour = 8 AND flights.minute = 20;
