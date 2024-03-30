@@ -12,7 +12,7 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 -- The duck was stolen at 10:15
 
 -- Checking Parking log for vehicles leaving around that time:
-select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit';
+select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and minute between 15 and 25 and activity = 'exit';
 
 -- +-----+------+-------+-----+------+--------+----------+---------------+
 -- | id  | year | month | day | hour | minute | activity | license_plate |
@@ -28,7 +28,7 @@ select license_plate from bakery_security_logs where month = 7 and day = 28 and 
 -- | 268 | 2023 | 7     | 28  | 10   | 35     | exit     | 1106N58       |
 -- +-----+------+-------+-----+------+--------+----------+---------------+
 
--- Gettings names of these people
+-- Gettings names of the people in the parking lot during that time
 select name from people where license_plate in (select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit');
 -- +---------+
 -- |  name   |
