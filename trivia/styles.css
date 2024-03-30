@@ -91,3 +91,8 @@ button.failure {
 input.success {
     border: 2px solid lightgreen;
 }
+
+input.success::after {
+    content: 'Correct';
+    color: lightgreen;
+}
