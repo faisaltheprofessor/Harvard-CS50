@@ -103,5 +103,82 @@ select city from airports where id = 4;
 select people.name from people inner join passengers on people.passport_number = passengers.passport_number inner join flights on flights.id = passengers.flight_id where flights.id = 36;
 
 
-select name, license_plate from (select people.name, people.license_plate from people inner join passengers on people.passport_number = passengers.passport_number inner join
+select name from (select people.name, people.license_plate from people inner join passengers on people.passport_number = passengers.passport_number inner join
 flights on flights.id = passengers.flight_id where flights.id = 36) where name in (select name from people where phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60)) and license_plate in (select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and minute between 15 and 25 and activity = 'exit');
+-- These people were on the flight who were also seen in the parking lot and were on call
+-- +--------+---------------+
+-- |  name  | license_plate |
+-- +--------+---------------+
+-- | Sofia  | G412CB7       |
+-- | Bruce  | 94KL13X       |
+-- | Kelsey | 0NTHK55       |
+-- +--------+---------------+
+
+
+-- Now checking who made a widthdrawl
+
+select account_number from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type= "withdraw";
+-- +----------------+
+-- | account_number |
+-- +----------------+
+-- | 28500762       |
+-- | 28296815       |
+-- | 76054385       |
+-- | 49610011       |
+-- | 16153065       |
+-- | 25506511       |
+-- | 81061156       |
+-- | 26013199       |
+-- +----------------+
+
+select people.name from bank_accounts join people on people.id=bank_accounts.person_id where name in (
+select name from (select people.name, people.license_plate from people inner join passengers on people.passport_number = passengers.passport_number inner join
+flights on flights.id = passengers.flight_id where flights.id = 36) where name in (select name from people where phone_number in (select caller from phone_calls where month = 7 and day = 28 and duration < 60)) and license_plate in (select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and minute between 15 and 25 and activity = 'exit')
+);
+
+    -- - BRUCE IS THE THIEF, SINCE HE WAS SEEN IN PARKING, CALLING LESS THAN A MIINUTE AND ON THE FIRST FLIGHT NEXT MORNING
+
+
+-- Now finding who helped bruce by checking who he was talking to
+
+select caller, receiver from phone_calls where month = 7 and day = 28 and duration < 60;
+-- +----------------+----------------+
+-- |     caller     |    receiver    |
+-- +----------------+----------------+
+-- | (130) 555-0289 | (996) 555-8899 |
+-- | (499) 555-9472 | (892) 555-8872 |
+-- | (367) 555-5533 | (375) 555-8161 |
+-- | (499) 555-9472 | (717) 555-1342 |
+-- | (286) 555-6063 | (676) 555-6554 |
+-- | (770) 555-1861 | (725) 555-3243 |
+-- | (031) 555-6622 | (910) 555-3251 |
+-- | (826) 555-1652 | (066) 555-9701 |
+-- | (338) 555-6650 | (704) 555-2131 |
+-- +----------------+----------------+
+
+select phone_number from people where name = 'Bruce';
+-- +----------------+
+-- |  phone_number  |
+-- +----------------+
+-- | (367) 555-5533 |
+-- +----------------+
+
+
+-- Now checking who bruce was talking to
+select receiver from phone_calls where month = 7 and day = 28 and duration < 60 and caller = (select phone_number from people where name = 'Bruce');
+-- +----------------+
+-- |    receiver    |
+-- +----------------+
+-- | (375) 555-8161 |
+-- +----------------+
+
+-- Now checking who this number belongs to
+
+select name from people where phone_number = (select receiver from phone_calls where month = 7 and day = 28 and duration < 60 and caller = (select phone_number from people where name = 'Bruce'));
+-- +-------+
+-- | name  |
+-- +-------+
+-- | Robin |
+-- +-------+
+
+                -- ROBIN HELPED BRUCE
