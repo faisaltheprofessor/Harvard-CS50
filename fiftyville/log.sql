@@ -98,6 +98,21 @@ select account_number from atm_transactions where month = 7 and day = 28 and atm
 
 --  I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow (getting the flights to fiftyville on july 29)
 
--- Get fiftyville airport id
+-- Getting first flight leaving on july 29th
+select origin_airport_id, destination_airport_id from flights where origin_airport_id = (select id from airports where city = 'Fiftyville') and month = 7 and day = 29 order by hour, minute limit 1;
+-- +-------------------+------------------------+
+-- | origin_airport_id | destination_airport_id |
+-- +-------------------+------------------------+
+-- | 8                 | 4                      |
+-- +-------------------+------------------------+
 
-select * from flights where origin_airport_id = (select id from airports where city = 'Fiftyville') and month = 7 and day = 29 order by hour, minute;
+-- Checking whhere the flight was headed to
+select city from airports where id = 4;
+-- +---------------+
+-- |     city      |
+-- +---------------+
+-- | New York City |
+-- +---------------+
+
+                    -- THIEF WENT TO NEW YORK CITY.
+
