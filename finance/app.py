@@ -39,8 +39,22 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    user_id = session["user_id"]
 
+    transactions = db.execute(
+        "SELECT symbol, name, SUM(shares) AS shares, price FROM transactions WHERE user_id = (?) GROUP BY symbol HAVING SUM(shares) > 0;", user_id)
+    cash = db.execute("SELECT cash FROM users WHERE id = (?);", user_id)
+
+    totalcash = cash[0]["cash"]
+    sum = int(totalcash)
+
+    for row in transactions:
+        look = lookup(row["symbol"])
+        row["price"] = look["price"]
+        row["total"] = row["price"] * row["shares"]
+        sum += row["total"]
+
+    return render_template("index.html", database=transactions, users=cash, sum=sum)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -59,6 +73,7 @@ def history():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
+    
 
     # Forget any user_id
     session.clear()
