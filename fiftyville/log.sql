@@ -100,4 +100,4 @@ select city from airports where id = 4;
 
 
 -- Checking names of the passengers on the flight 36 and cross matching
-select people.name from people inner join passengers on people.passport_number = passengers.passport_number inner join flights on flights.id = passengers.flight_id;
+select people.name from people inner join passengers on people.passport_number = passengers.passport_number inner join flights on flights.id = passengers.flight_id where flights.id = 36;
