@@ -80,12 +80,12 @@ select name from people where phone_number in (select caller from phone_calls wh
 --  I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow (getting the flights to fiftyville on july 29)
 
 -- Getting first flight leaving on july 29th
-select origin_airport_id, destination_airport_id from flights where origin_airport_id = (select id from airports where city = 'Fiftyville') and month = 7 and day = 29 order by hour, minute limit 1;
--- +-------------------+------------------------+
--- | origin_airport_id | destination_airport_id |
--- +-------------------+------------------------+
--- | 8                 | 4                      |
--- +-------------------+------------------------+
+select id, origin_airport_id, destination_airport_id from flights where origin_airport_id = (select id from airports where city = 'Fiftyville') and month = 7 and day = 29 order by hour, minute limit 1;
+-- +----+-------------------+------------------------+
+-- | id | origin_airport_id | destination_airport_id |
+-- +----+-------------------+------------------------+
+-- | 36 | 8                 | 4                      |
+-- +----+-------------------+------------------------+
 
 -- Checking whhere the flight was headed to
 select city from airports where id = 4;
@@ -95,9 +95,9 @@ select city from airports where id = 4;
 -- | New York City |
 -- +---------------+
 
-                    -- THIEF WENT TO NEW YORK CITY.
+                    -- THIEF WENT TO NEW YORK CITY ON FLIGHT ID 36
 
 
 
--- Checking names of the passengers on the flight to see if any passenger was on the call during that time:
-select people.name 
+-- Checking names of the passengers on the flight 36 and cross matching
+select people.name from people inner join passengers on people.passport_number = passengers.passport_number inner join flights on flights.id = passengers.flight_id;
