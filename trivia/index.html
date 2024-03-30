@@ -8,13 +8,14 @@
         <script>
             // TODO: Add code to check answers to questions
 
-            let buttons = document.querySelectorAll('button');
-            console.log(buttons)
+            document.addEventListener('DOMContentLoaded', () => {
+                let buttons = document.querySelectorAll('button');
+
             buttons.forEach(button => {
-                console.log(button)
                 button.addEventListener('click', event => {
-                    console.log(event)
+                    console.log(event.target.innerHTML)
                 })
+            })
             })
         </script>
     </head>
