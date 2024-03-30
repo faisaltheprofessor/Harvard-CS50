@@ -44,10 +44,12 @@
                 const correctAnswer2 = 'kabul'
 
                 document.getElementById('submitAnswer').addEventListener('click', () => {
-                    let answer = (document.getElementById('answer').value).toLowerCase()
-                    if (answer === correctAnswer1)
+                    let input = document.getElementById('answer')
+
+                    if (correctAnswer2 === (input.value).toLowerCase())
                     {
-                        
+                        input.classList.add('success')
+                        console.log(input)
                     }
                     {
 
