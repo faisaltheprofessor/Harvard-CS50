@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
@@ -15,29 +16,29 @@
 
                 buttons.forEach(button => {
                     button.addEventListener('click', event => {
-                    const givenAnswer = event.target.innerHTML;
-                    const siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
+                        const givenAnswer = event.target.innerHTML;
+                        const siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
 
-                    answerParagraphs.forEach(paragraph => {
-                        paragraph.classList.add('hidden');
-                    });
-
-                    if (givenAnswer === correctAnswer) {
-                        siblings.forEach(sibling => {
-                        sibling.classList.remove('failure');
+                        answerParagraphs.forEach(paragraph => {
+                            paragraph.classList.add('hidden');
                         });
 
-                        event.target.classList.add('success');
-                        answerParagraphs[0].classList.remove('hidden');
-                    } else {
-                        siblings.forEach(sibling => {
-                        sibling.classList.remove('failure');
-                        sibling.classList.remove('success');
-                        });
+                        if (givenAnswer === correctAnswer) {
+                            siblings.forEach(sibling => {
+                                sibling.classList.remove('failure');
+                            });
 
-                        event.target.classList.add('failure');
-                        answerParagraphs[1].classList.remove('hidden');
-                    }
+                            event.target.classList.add('success');
+                            answerParagraphs[0].classList.remove('hidden');
+                        } else {
+                            siblings.forEach(sibling => {
+                                sibling.classList.remove('failure');
+                                sibling.classList.remove('success');
+                            });
+
+                            event.target.classList.add('failure');
+                            answerParagraphs[1].classList.remove('hidden');
+                        }
                     });
                 });
 
@@ -47,26 +48,26 @@
                 document.getElementById('submitAnswer').addEventListener('click', () => {
                     let input = document.getElementById('answer')
 
-                    if (correctAnswer2 === (input.value).toLowerCase())
-                    {
+                    if (correctAnswer2 === (input.value).toLowerCase()) {
+                        input.classList.remove('failure')
                         input.classList.add('success')
                         result.innerHTML = 'Correct'
+                        result.classList.remove('failure')
                         result.classList.add('success')
 
-                    }
-                    else
-                    {
+                    } else {
+                        input.classList.remove('success')
                         input.classList.add('failure')
                         result.innerHTML = 'Inorrect'
+                        result.classList.remove('success')
                         result.classList.add('failure')
                     }
                 })
 
-                });
-
-
+            });
         </script>
     </head>
+
     <body>
         <div class="header">
             <h1>Trivia!</h1>
@@ -103,4 +104,5 @@
             </div>
         </div>
     </body>
+
 </html>

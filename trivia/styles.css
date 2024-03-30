@@ -37,7 +37,8 @@ h1 {
     font-size: 48px;
 }
 
-button, input[type="submit"] {
+button,
+input[type="submit"] {
     background-color: #d9edff;
     border: 1px solid transparent;
     border-radius: 0.25rem;
@@ -76,7 +77,7 @@ button:hover {
 
 
 .hidden {
-    display:none
+    display: none
 }
 
 
@@ -92,16 +93,14 @@ input.success {
     border: 2px solid lightgreen;
 }
 
-input.success::after {
-    content: 'Correct';
-    color: lightgreen;
+input.failure {
+    border: 2px solid red;
 }
 
 p.success {
     color: green;
 }
 
-p.failure
-{
+p.failure {
     color: red
 }
