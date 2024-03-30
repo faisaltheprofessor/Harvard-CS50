@@ -7,10 +7,11 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
+
             document.addEventListener('DOMContentLoaded', () => {
                 const correctAnswer = 'Afghanistan';
                 const answerParagraphs = document.querySelectorAll("#answer p");
-                const buttons = document.querySelectorAll('button');
+                const buttons = document.querySelectorAll('.mcq button');
 
                 buttons.forEach(button => {
                     button.addEventListener('click', event => {
@@ -39,7 +40,14 @@
                     }
                     });
                 });
+
+                document.getElementById('submitAnswer').addEventListener('click', () => {
+                    let answer = document.getElementById('answer')
+                    console.log(answer)
+                })
+
                 });
+
 
         </script>
     </head>
@@ -54,12 +62,12 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>Which country does this flag represent? 🇦🇫</h3>
-                <div id="answer">
+                <div id="answers">
                     <p class="correct hidden">Correct</p>
                     <p class="incorrect hidden">Incorrect</p>
                 </div>
 
-                <div>
+                <div class="mcq">
                     <button>Germany</button>
                     <button>Afghanistan</button>
                     <button>Ukraine</button>
@@ -72,8 +80,8 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>What is the capital of Afghanistan?</h3>
-                <input type="text" />
-                <button>Submit</button>
+                <input id="answer" type="text" />
+                <button id="submitAnswer">Submit</button>
             </div>
         </div>
     </body>
