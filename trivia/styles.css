@@ -96,3 +96,12 @@ input.success::after {
     content: 'Correct';
     color: lightgreen;
 }
+
+p.success {
+    color: green;
+}
+
+p.failure
+{
+    color: red
+}
