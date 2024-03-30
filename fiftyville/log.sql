@@ -78,7 +78,7 @@ select name from people where phone_number in (select caller from phone_calls wh
 
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
-select account_number from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
+select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
 -- +----------------+
 -- | account_number |
 -- +----------------+
