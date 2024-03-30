@@ -14,22 +14,21 @@ select description  from crime_scene_reports where day = 28 and month = 7 and st
 -- Checking Parking log for vehicles leaving around that time:
 select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and minute between 15 and 25 and activity = 'exit';
 
--- +-----+------+-------+-----+------+--------+----------+---------------+
--- | id  | year | month | day | hour | minute | activity | license_plate |
--- +-----+------+-------+-----+------+--------+----------+---------------+
--- | 260 | 2023 | 7     | 28  | 10   | 16     | exit     | 5P2BI95       |
--- | 261 | 2023 | 7     | 28  | 10   | 18     | exit     | 94KL13X       |
--- | 262 | 2023 | 7     | 28  | 10   | 18     | exit     | 6P58WS2       |
--- | 263 | 2023 | 7     | 28  | 10   | 19     | exit     | 4328GD8       |
--- | 264 | 2023 | 7     | 28  | 10   | 20     | exit     | G412CB7       |
--- | 265 | 2023 | 7     | 28  | 10   | 21     | exit     | L93JTIZ       |
--- | 266 | 2023 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
--- | 267 | 2023 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
--- | 268 | 2023 | 7     | 28  | 10   | 35     | exit     | 1106N58       |
--- +-----+------+-------+-----+------+--------+----------+---------------+
+-- +---------------+
+-- | license_plate |
+-- +---------------+
+-- | 5P2BI95       |
+-- | 94KL13X       |
+-- | 6P58WS2       |
+-- | 4328GD8       |
+-- | G412CB7       |
+-- | L93JTIZ       |
+-- | 322W7JE       |
+-- | 0NTHK55       |
+-- +---------------+
 
 -- Gettings names of the people in the parking lot during that time
-select name from people where license_plate in (select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and activity = 'exit');
+select name from people where license_plate in (select license_plate from bakery_security_logs where month = 7 and day = 28 and hour = 10 and minute between 15 and 25 and activity = 'exit');
 -- +---------+
 -- |  name   |
 -- +---------+
@@ -37,7 +36,6 @@ select name from people where license_plate in (select license_plate from bakery
 -- | Barry   |
 -- | Iman    |
 -- | Sofia   |
--- | Taylor  |
 -- | Luca    |
 -- | Diana   |
 -- | Kelsey  |
