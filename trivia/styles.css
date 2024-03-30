@@ -87,3 +87,7 @@ button.success {
 button.failure {
     background: red;
 }
+
+input.success {
+    border: 2px solid lightgreen;
+}
