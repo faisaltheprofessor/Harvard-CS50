@@ -9,11 +9,20 @@
             // TODO: Add code to check answers to questions
 
             document.addEventListener('DOMContentLoaded', () => {
+                let correctAnswer = 'Afghanistan'
                 let buttons = document.querySelectorAll('button');
 
             buttons.forEach(button => {
                 button.addEventListener('click', event => {
-                    console.log(event.target.innerHTML)
+                    let givenAnswer = event.target.innerHTML
+                    if (givenAnswer === correctAnswer)
+                    {
+                        event.target.classList.add ('success')
+                    }
+                    else
+                    {
+                        alert ("Incorrect")
+                    }
                 })
             })
             })
@@ -30,8 +39,10 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>Which country does this flag represent? 🇦🇫</h3>
-                <p class="correct">Correct</p>
-                <p class="correct">Incorrect</p>
+                <div id="answer">
+                    <p class="correct hidden">Correct</p>
+                    <p class="incorrect hidden">Incorrect</p>
+                </div>
 
                 <div>
                     <button>Germany</button>

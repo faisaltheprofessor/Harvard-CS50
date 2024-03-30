@@ -64,3 +64,17 @@ input[type="text"]:hover {
 button:hover {
     cursor: pointer;
 }
+
+.correct {
+    color: green
+}
+
+.incorrect {
+    color: red
+}
+
+
+
+.hidden {
+    display:none
+}
