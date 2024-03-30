@@ -1,5 +1,5 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
-
+-- I used Tableplus to beautify SQL Syntax
 
 -- Listing the description of the crimes scencs took place on july 28
 
