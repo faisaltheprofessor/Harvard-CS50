@@ -79,19 +79,18 @@ select name from people where phone_number in (select caller from phone_calls wh
 -- Since the theif was seen at the ATM, checking ATM transctions:
 
 select account_number from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
--- +-----+----------------+------+-------+-----+----------------+------------------+--------+
--- | id  | account_number | year | month | day |  atm_location  | transaction_type | amount |
--- +-----+----------------+------+-------+-----+----------------+------------------+--------+
--- | 246 | 28500762       | 2023 | 7     | 28  | Leggett Street | withdraw         | 48     |
--- | 264 | 28296815       | 2023 | 7     | 28  | Leggett Street | withdraw         | 20     |
--- | 266 | 76054385       | 2023 | 7     | 28  | Leggett Street | withdraw         | 60     |
--- | 267 | 49610011       | 2023 | 7     | 28  | Leggett Street | withdraw         | 50     |
--- | 269 | 16153065       | 2023 | 7     | 28  | Leggett Street | withdraw         | 80     |
--- | 288 | 25506511       | 2023 | 7     | 28  | Leggett Street | withdraw         | 20     |
--- | 313 | 81061156       | 2023 | 7     | 28  | Leggett Street | withdraw         | 30     |
--- | 336 | 26013199       | 2023 | 7     | 28  | Leggett Street | withdraw         | 35     |
--- +-----+----------------+------+-------+-----+----------------+------------------+--------+
-
+-- +----------------+
+-- | account_number |
+-- +----------------+
+-- | 28500762       |
+-- | 28296815       |
+-- | 76054385       |
+-- | 49610011       |
+-- | 16153065       |
+-- | 25506511       |
+-- | 81061156       |
+-- | 26013199       |
+-- +----------------+
 
 
 --  I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow (getting the flights to fiftyville on july 29)
