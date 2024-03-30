@@ -8,9 +8,10 @@
         <script>
             // TODO: Add code to check answers to questions
 
-            let buttons = document.getElementsByTagName('button');
-
+            let buttons = document.querySelectorAll('button');
+            console.log(buttons)
             buttons.forEach(button => {
+                console.log(button)
                 button.addEventListener('click', event => {
                     console.log(event)
                 })
