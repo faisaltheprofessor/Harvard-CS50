@@ -19,6 +19,9 @@
                     let givenAnswer = event.target.innerHTML
                     if (givenAnswer === correctAnswer)
                     {
+                        let siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
+                        siblings.forEach(sibling => {sibling.classList.remove('failure')})
+
                         correctP.classList.add('hidden')
                         incorrectP.classList.add('hidden')
                         event.target.classList.add ('success')
@@ -26,6 +29,9 @@
                     }
                     else
                     {
+                        let siblings = Array.from(event.target.parentNode.children).filter(child => child !== event.target);
+                        siblings.forEach(sibling => {sibling.classList.remove('failure')})
+                        siblings.forEach(sibling => {sibling.classList.remove('success')})
                         correctP.classList.add('hidden')
                         incorrectP.classList.add('hidden')
                         event.target.classList.add ('failure')
