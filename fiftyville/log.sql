@@ -76,22 +76,6 @@ select name from people where phone_number in (select caller from phone_calls wh
 -- +---------+
 
 
--- Since the theif was seen at the ATM, checking ATM transctions:
-
-select * from atm_transactions where month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw';
--- +----------------+
--- | account_number |
--- +----------------+
--- | 28500762       |
--- | 28296815       |
--- | 76054385       |
--- | 49610011       |
--- | 16153065       |
--- | 25506511       |
--- | 81061156       |
--- | 26013199       |
--- +----------------+
-
 
 --  I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow (getting the flights to fiftyville on july 29)
 
@@ -115,4 +99,5 @@ select city from airports where id = 4;
 
 
 
-
+-- Checking names of the passengers on the flight to see if any passenger was on the call during that time:
+select people.name 
