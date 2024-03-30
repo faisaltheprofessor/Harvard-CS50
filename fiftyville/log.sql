@@ -51,3 +51,11 @@ select  account_number  from atm_transactions where month = 7 and day = 28 and a
 select caller from phone_calls where month = 7 and day = 28 and duration < 60;
 
 
+-- Find the Names of the people associated with the Same License Plate
+SELECT p.name from people p
+JOIN bakery_security_logs ON p.license_plate = bakery_security_logs.license_plate
+WHERE bakery_security_logs.day = 28 AND bakery_security_logs.month = 7
+AND bakery_security_logs.year = 2021 AND bakery_security_logs.hour = 10
+AND bakery_security_logs.minute BETWEEN 15 AND 25;
+
+
