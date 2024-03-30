@@ -10,6 +10,8 @@
 
             document.addEventListener('DOMContentLoaded', () => {
                 let correctAnswer = 'Afghanistan'
+                let correctP = document.querySelector("#answer p:first-child");
+                let incorrectP = document.querySelector("#answer p:nth-child(2)");
                 let buttons = document.querySelectorAll('button');
 
             buttons.forEach(button => {
@@ -17,11 +19,17 @@
                     let givenAnswer = event.target.innerHTML
                     if (givenAnswer === correctAnswer)
                     {
+                        correctP.classList.add('hidden')
+                        incorrectP.classList.add('hidden')
                         event.target.classList.add ('success')
+                        correctP.classList.remove('hidden')
                     }
                     else
                     {
-                        alert ("Incorrect")
+                        correctP.classList.add('hidden')
+                        incorrectP.classList.add('hidden')
+                        event.target.classList.add ('failure')
+                        incorrectP.classList.remove('hidden')
                     }
                 })
             })
