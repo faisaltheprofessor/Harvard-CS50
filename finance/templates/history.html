@@ -14,20 +14,22 @@
                         <th class="text-start">Name</th>
                         <th class="text-end">No. of Share</th>
                         <th class="text-end">Price</th>
+                        <th class="text-end">Total</th>
                         <th class="text-end">Activity</th>
                         <th class="text-end">Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for row in database %}
-                    <tr>
-                        <td class="text-start">{{ row["symbol"] }}</td>
-                        <td class="text-start">{{ row["name"] }}</td>
-                        <td class="text-end">{{ row["shares"] }}</td>
-                        <td class="text-end">{{ row["price"] }}</td>
-                        <td class="text-end red" style="color: {% if row['buy_sell'] == 'SELL' %}red{% else %}cornflowerblue{% endif %};">{{ row["buy_sell"] }}</td>
-                        <td class="text-end">{{ row["Timestamp"] }}</td>
-                    </tr>
+                        <tr>
+                            <td class="text-start">{{ row["symbol"] }}</td>
+                            <td class="text-start">{{ row["name"] }}</td>
+                            <td class="text-end">{{ row["shares"] }}</td>
+                            <td class="text-end">{{ row["price"] | usd }}</td>
+                            <td class="text-end">{{ (row["shares"] * row["price"]) | usd }}</td>
+                            <td class="text-end red" style="color: {% if row['buy_sell'] == 'SELL' %}red{% else %}cornflowerblue{% endif %};">{{ row["buy_sell"] }}</td>
+                            <td class="text-end">{{ row["Timestamp"] }}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>

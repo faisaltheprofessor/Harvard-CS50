@@ -26,7 +26,8 @@ db = SQL("sqlite:///finance.db")
 # Make sure API key is set
 # if not os.environ.get("API_KEY"):
 #     raise RuntimeError("API_KEY not set")
-API_KEY="pk_cd43929077c04a94a367adc4f191b424"
+API_KEY = "pk_cd43929077c04a94a367adc4f191b424"
+
 
 @app.after_request
 def after_request(response):
@@ -104,7 +105,8 @@ def buy():
 def history():
     """Show history of transactions"""
     user_id = session["user_id"]
-    transactions = db.execute("SELECT symbol, name, shares, price, Timestamp FROM transactions WHERE user_id = (?);", user_id)
+    transactions = db.execute(
+        "SELECT symbol, name, shares, price, Timestamp FROM transactions WHERE user_id = (?);", user_id)
 
     buy_sell = []
     for row in transactions:
@@ -201,7 +203,8 @@ def register():
 
         # Query database for username
         try:
-            db.execute("INSERT INTO users (username, hash) VALUES(?, ?);", username, generate_password_hash(password))
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?);",
+                       username, generate_password_hash(password))
         except:
             return apology("Username is taken, please try another username", 400)
 
@@ -220,7 +223,8 @@ def sell():
     user_id = session["user_id"]
 
     if request.method == "GET":
-        symbols = db.execute("SELECT symbol FROM transactions WHERE user_id = (?) GROUP BY symbol HAVING SUM(shares) > 0;", user_id)
+        symbols = db.execute(
+            "SELECT symbol FROM transactions WHERE user_id = (?) GROUP BY symbol HAVING SUM(shares) > 0;", user_id)
         return render_template("sell.html", symbol=symbols)
 
     if request.method == "POST":
@@ -239,7 +243,8 @@ def sell():
     cash_db = db.execute("SELECT cash FROM users WHERE id = (?);", user_id)
     user_cash = (int(cash_db[0]["cash"]))
 
-    oldshares = db.execute("SELECT symbol, SUM(shares) AS shares FROM transactions WHERE symbol = (?);", symbol)
+    oldshares = db.execute(
+        "SELECT symbol, SUM(shares) AS shares FROM transactions WHERE symbol = (?);", symbol)
     no_old_shares = (int(oldshares[0]["shares"]))
 
     sold = price * shares
@@ -255,6 +260,7 @@ def sell():
     flash("Sold!")
     return redirect("/")
 
+
 @app.route("/change_password", methods=["GET", "POST"])
 def change_password():
     """Register user"""
@@ -262,7 +268,6 @@ def change_password():
     password = request.form.get("password")
     newpassword = request.form.get("newpassword")
     confirmation = request.form.get("confirmation")
-
 
     if request.method == "POST":
         # Ensure username was submitted
@@ -284,7 +289,8 @@ def change_password():
 
         # Query database for username
         try:
-            db.execute("UPDATE users SET hash = (?) WHERE id = (?);", generate_password_hash(newpassword), user_id)
+            db.execute("UPDATE users SET hash = (?) WHERE id = (?);",
+                       generate_password_hash(newpassword), user_id)
         except:
             return apology("Please try again", 400)
 
