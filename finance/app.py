@@ -254,7 +254,7 @@ def sell():
         return apology("Insufficient share units in your account")
 
     db.execute("UPDATE users SET cash = (?) WHERE id = (?);", update_user_cash, user_id)
-    db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price) VALUES (?, ?, ?, ?, ?)",
+    db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price, TIMESTAMP) VALUES (?, ?, ?, ?, ?, DATETIME('now'))",
                user_id, symbol, name, shares*(-1), price)
 
     flash("Sold!")
