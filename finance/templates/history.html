@@ -5,32 +5,31 @@
 {% endblock %}
 
 {% block main %}
-    <div style="text-align: center;">
-        <form action="/history" method="post">
-            <table style="width: 100%; margin-top: 20px;" class="table table-striped">
+    <form action="/history" method="post">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th class="text-start">Symbol</th>
                         <th class="text-start">Name</th>
-                        <th class="text-end">No. of Share</th>
+                        <th class="text-end">Shares</th>
                         <th class="text-end">Price</th>
-                        <th class="text-end">Activity</th>
+                        <th class="text-end">Buy/Sell</th>
                         <th class="text-end">Transacted</th>
                     </tr>
                 </thead>
-                <tbody>
+            <tbody>
                     {% for row in database %}
                     <tr>
                         <td class="text-start">{{ row["symbol"] }}</td>
                         <td class="text-start">{{ row["name"] }}</td>
                         <td class="text-end">{{ row["shares"] }}</td>
                         <td class="text-end">{{ row["price"] }}</td>
-                        <td class="text-end red" style="color: {% if row['buy_sell'] == 'SELL' %}red{% else %}cornflowerblue{% endif %};">{{ row["buy_sell"] }}</td>
+                        <td class="text-end red" style ="color: {% if row['buy_sell'] == 'SELL' %}red{% else %}cornflowerblue{% endif %};">{{ row["buy_sell"] }}</td>
                         <td class="text-end">{{ row["Timestamp"] }}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
+            </tbody>
             </table>
-        </form>
-    </div>
-{% endblock %}
+        </main>
+
+{% endblock %}f
