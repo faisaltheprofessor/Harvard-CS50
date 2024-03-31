@@ -1,0 +1,14 @@
+
+{% extends "layout.html" %}
+
+{% block title %}Quote Result{% endblock %}
+
+{% block main %}
+<form action="/quote" method="get">
+    <div style="text-align: center; background-color: #f0f0f0; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #333;">Name: {{ quoteResult["name"] }}</h2>
+        <h2 style="color: #333;">Symbol: {{ quoteResult["symbol"] }}</h2>
+        <h2 style="color: #455a64;">Price: ${{ quoteResult["price"] | usd }}</h2>
+    </div>
+</form>
+{% endblock %}
