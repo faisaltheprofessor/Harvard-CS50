@@ -16,4 +16,6 @@
 
 ### Some information about me:
 - My name: Mohammad Faisal Mahboob Shah
-- Edx username: 
+- Edx username: theprofessorkhan
+- Country: Afghanistan
+
