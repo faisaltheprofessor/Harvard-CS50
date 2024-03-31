@@ -5,16 +5,20 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/register" method="post">
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
-        </div>
-        <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
-        </div>
-        <div class="mb-3">
-        <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Password (again)" type="password">
-        </div>
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
-{% endblock %}f
+    <div style="text-align: center;">
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;" id="username" name="username" placeholder="Username" type="text" required>
+            </div>
+            <div class="mb-3">
+                <input style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;" id="password" name="password" placeholder="Password" type="password" required>
+            </div>
+            <div class="mb-3">
+                <input style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;" name="confirmation" placeholder="Repeat Password" type="password" required>
+            </div>
+            <div>
+                <button style="padding: 8px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

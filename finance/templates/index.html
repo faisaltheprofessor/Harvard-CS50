@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/index" method="post">
-            <table class="table table-striped">
+    <div style="text-align: center;">
+        <form action="/index" method="post">
+            <table style="width: 100%; margin-top: 20px;" class="table table-striped">
                 <thead>
                     <tr>
                         <th class="text-start">Symbol</th>
@@ -16,8 +17,8 @@
                         <th class="text-end">TOTAL</th>
                     </tr>
                 </thead>
-            <tbody>
-                {% for row in database %}
+                <tbody>
+                    {% for row in database %}
                     <tr>
                         <td class="text-start">{{ row["symbol"] }}</td>
                         <td class="text-start">{{ row["name"] }}</td>
@@ -26,7 +27,7 @@
                         <td class="text-end">{{ row["total"] | usd }}</td>
                     </tr>
                     {% endfor %}
-            </tbody>
+                </tbody>
                 <tfoot>
                     <tr>
                         {% for row in users %}
@@ -36,10 +37,10 @@
                     </tr>
                     <tr>
                         <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                        <td class="border-0 w-bold text-end">{{ sum | usd }}</td>
+                        <td class="border-0 fw-bold text-end">{{ sum | usd }}</td>
                     </tr>
                 </tfoot>
             </table>
-        </main>
-
+        </form>
+    </div>
 {% endblock %}
