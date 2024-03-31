@@ -16,6 +16,12 @@
    - The development of the iOS app complemented the web platform, offering users a seamless mobile interface to access visitor data and messages effortlessly.
    - The incorporation of API key authentication mechanisms guaranteed secure data retrieval and facilitated smooth interaction with the web app's data, underscoring the project's commitment to data security and user privacy.
 
+### About Laravel:
+ - Laravel is a free and open-source PHP- based web framework for building high-end web applications. It was created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.
+
+ ### About SwiftUI:
+ - SwiftUI is a user interface toolkit by Apple for building apps across all Apple platforms. It utilizes a declarative syntax and live previews for rapid development. It simplifies the creation of interactive and dynamic user interfaces using Swift programming language.
+
 #### About Me:
 -     **Name:** Mohammad Faisal Mahboob Shah
 -     **Edx Username:** theprofessorkhan
