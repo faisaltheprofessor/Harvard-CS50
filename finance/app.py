@@ -68,7 +68,7 @@ def buy():
 
         if buy == None:
             return apology("Invalid Symbol")
-        return buy
+
         user_id = session["user_id"]
         name = buy["name"]
         price = buy["price"]
