@@ -4,11 +4,11 @@
 {% block title %}Quoted{% endblock %}
 
 {% block main %}
-    <form action="/quote" method="get">
-        <div class="d-flex flex-column">
-            <h1>Name : {{ quoted["name"]}}</h1>
-            <h1>Symbol : {{ quoted["symbol"]}}</h1>
-            <h1>{{ quoted["price"] | usd }}</h1>
-        </div>
-    </form>
+<form action="/quote" method="get">
+    <div style="text-align: center; background-color: #f0f0f0; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #333;">Name: {{ quoted["name"] }}</h2>
+        <h2 style="color: #333;">Symbol: {{ quoted["symbol"] }}</h2>
+        <h2 style="color: #455a64;">Price: ${{ quoted["price"] | usd }}</h2>
+    </div>
+</form>
 {% endblock %}
