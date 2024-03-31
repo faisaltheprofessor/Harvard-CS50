@@ -6,6 +6,7 @@
     - iOS app
 ### Web App
 - The web application utilizes Laravel, designed to showcase my portfolio. Within this platform,  visitor information is captured and stored. Visitors can use the contact form to send messages.
+- Users can find information about me, my work, hobbies and etc.
 - This information is used in a MySQL database.
 - Authentication is implemented.
 
