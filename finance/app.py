@@ -6,6 +6,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import jsonify
+import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -91,8 +92,9 @@ def buy():
             return apology("Insufficient fund in your account")
 
         db.execute("UPDATE users SET cash = (?) WHERE id = (?);", update_user_cash, user_id)
-        db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price, timestamp) VALUES (?, ?, ?, ?, ?)",
-                   user_id, symbol, name, shares, price, )
+        db.execute("INSERT INTO transactions (user_id, symbol, name, shares, price, timestamp) VALUES (?, ?, ?, ?, ?, ?)",
+           (user_id, symbol, name, shares, price, datetime.datetime.now()))
+
         flash("Bought!")
         return redirect("/")
 
