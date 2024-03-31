@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Sell{% endblock %}
+
+{% block main %}
+    <div style="text-align: center;">
+        <form action="/sell" method="post">
+            <div class="mb-3">
+                <select style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;" name="symbol">
+                    <option disabled selected>Select Symbol</option>
+                    {% for row in symbol %}
+                        <option>{{ row["symbol"] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <input style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;" id="shares" name="shares" placeholder="Enter Shares" type="number" min="1">
+            </div>
+            <div>
+                <button style="padding: 8px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;" type="submit">Sell</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
